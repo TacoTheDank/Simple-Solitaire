@@ -41,8 +41,8 @@ public class Scores {
     private long score;                                                 //the current score
     private long preBonus;
     private long bonus;
-    private long savedHighScores[][] = new long[MAX_SAVED_SCORES][3];   //array to hold the saved scores with score and time
-    private long savedRecentScores[][] = new long[MAX_SAVED_SCORES][3]; //array to hold the saved scores with score and time
+    private long[][] savedHighScores = new long[MAX_SAVED_SCORES][3];   //array to hold the saved scores with score and time
+    private long[][] savedRecentScores = new long[MAX_SAVED_SCORES][3]; //array to hold the saved scores with score and time
     private GameManager gm;
     private UpdateScore callback;
 
@@ -196,7 +196,7 @@ public class Scores {
                     || savedHighScores[index - 1][0] < savedHighScores[index][0]       //or the score at index is less than the score before it
                     || (savedHighScores[index - 1][0] == savedHighScores[index][0]     //or the scores are the same...
                     && savedHighScores[index - 1][1] >= savedHighScores[index][1]))) { //but the time is less
-                long dummy[] = savedHighScores[index];
+                long[] dummy = savedHighScores[index];
                 savedHighScores[index] = savedHighScores[index - 1];
                 savedHighScores[index - 1] = dummy;
 

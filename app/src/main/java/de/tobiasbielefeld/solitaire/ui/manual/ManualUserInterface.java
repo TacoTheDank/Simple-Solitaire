@@ -44,12 +44,12 @@ public class ManualUserInterface extends Fragment {
         TextView textView2 = view.findViewById(R.id.text_view_manual_ui_2);
 
         //get the strings for the enumerated text part (with bullet characters)
-        CharSequence strings1[] = new CharSequence[]{
+        CharSequence[] strings1 = new CharSequence[]{
                 getText(R.string.manual_ui_text_part_2), getText(R.string.manual_ui_text_part_3),
                 getText(R.string.manual_ui_text_part_4), getText(R.string.manual_ui_text_part_5)
         };
 
-        CharSequence strings2[] = new CharSequence[]{
+        CharSequence[] strings2 = new CharSequence[]{
                 getText(R.string.manual_ui_text_part_7), getText(R.string.manual_ui_text_part_8),
                 getText(R.string.manual_ui_text_part_9)
         };

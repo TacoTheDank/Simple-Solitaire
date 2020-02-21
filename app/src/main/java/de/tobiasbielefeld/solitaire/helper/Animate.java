@@ -106,7 +106,7 @@ public class Animate {
         int counter = 0;
         Random rand = new Random();
 
-        PointF newPositions[] = new PointF[cards.length];
+        PointF[] newPositions = new PointF[cards.length];
 
         for (int i = 0; i < cards.length; i++) {
             switch (direction) {

@@ -79,7 +79,7 @@ public class ChangeLogFragment extends Fragment {
         for (int i = 1; i <= MAX_LINES_PER_VERSION; i++) {
 
             int ID = getResources().getIdentifier(
-                    "changelog_" + Integer.toString(pos) + "_" + Integer.toString(i),
+                    "changelog_" + pos + "_" + i,
                     "string", getActivity().getPackageName());
 
             if (ID != 0) {

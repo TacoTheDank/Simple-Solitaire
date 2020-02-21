@@ -352,7 +352,7 @@ public class SharedData {
      */
     static public CharSequence createBulletParagraph(CharSequence[] strings) {
 
-        SpannableString spanns[] = new SpannableString[strings.length];
+        SpannableString[] spanns = new SpannableString[strings.length];
 
         //apply the bullet characters
         for (int i = 0; i < strings.length; i++) {

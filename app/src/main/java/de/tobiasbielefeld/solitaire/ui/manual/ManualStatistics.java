@@ -43,7 +43,7 @@ public class ManualStatistics extends Fragment {
         TextView textView = view.findViewById(R.id.manual_statistics_list);
 
         //get the strings for the enumerated text part (with bullet characters)
-        CharSequence strings[] = new CharSequence[]{
+        CharSequence[] strings = new CharSequence[]{
                 getText(R.string.manual_statistics_part_2), getText(R.string.manual_statistics_part_3),
                 getText(R.string.manual_statistics_part_4), getText(R.string.manual_statistics_part_5),
                 getText(R.string.manual_statistics_part_6)

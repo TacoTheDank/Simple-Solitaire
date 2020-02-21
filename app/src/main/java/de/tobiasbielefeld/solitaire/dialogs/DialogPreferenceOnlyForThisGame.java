@@ -79,8 +79,8 @@ public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
 
         //settings were opened from the main menu
         if (isNotInGame()) {
-            String sharedPrefNames[] = lg.getSharedPrefNameList();
-            String gameNames[] = lg.getDefaultGameNameList(context.getResources());
+            String[] sharedPrefNames = lg.getSharedPrefNameList();
+            String[] gameNames = lg.getDefaultGameNameList(context.getResources());
 
             ArrayList<String> gamesWithIndividualSettings = new ArrayList<>(sharedPrefNames.length);
 
@@ -99,7 +99,7 @@ public class DialogPreferenceOnlyForThisGame extends CustomDialogPreference {
         } else if (!prefs.hasSettingsOnlyForThisGame()) {
 
             //build the list with bullet characters
-            CharSequence strings[] = new CharSequence[]{
+            CharSequence[] strings = new CharSequence[]{
                     context.getString(R.string.settings_dialog_only_for_this_game_enable_2),
                     context.getString(R.string.settings_dialog_only_for_this_game_enable_3),
                     context.getString(R.string.settings_dialog_only_for_this_game_enable_4)
