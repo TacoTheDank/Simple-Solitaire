@@ -1,11 +1,12 @@
 package de.tobiasbielefeld.solitaire.classes;
 
 import android.content.DialogInterface;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AlertDialog;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import de.tobiasbielefeld.solitaire.SharedData;
 

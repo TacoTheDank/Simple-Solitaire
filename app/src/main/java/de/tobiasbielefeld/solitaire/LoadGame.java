@@ -19,8 +19,9 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 

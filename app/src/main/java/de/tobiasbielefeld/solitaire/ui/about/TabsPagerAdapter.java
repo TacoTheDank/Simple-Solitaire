@@ -19,8 +19,10 @@
 package de.tobiasbielefeld.solitaire.ui.about;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import de.tobiasbielefeld.solitaire.R;
 
@@ -48,7 +50,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public android.support.v4.app.Fragment getItem(int index) {
+    public Fragment getItem(int index) {
         switch (index) {
             case 0:
                 return new InformationFragment();

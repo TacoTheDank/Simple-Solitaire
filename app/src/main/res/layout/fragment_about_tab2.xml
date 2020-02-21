@@ -14,7 +14,7 @@
         android:paddingRight="@dimen/card_view_padding_horizontal"
         android:paddingBottom="@dimen/card_view_padding_vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -73,9 +73,9 @@
                     android:text="@string/about_android_support_libraries_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -134,9 +134,9 @@
                     android:text="@string/about_material_icons_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -196,10 +196,10 @@
                     android:text="@string/about_material_icons_2_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -259,9 +259,9 @@
                     android:text="@string/about_card_themes_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -321,9 +321,9 @@
                     android:text="@string/about_poker_themes_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -383,9 +383,9 @@
                     android:text="@string/about_paris_themes_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -444,10 +444,10 @@
                     android:text="@string/about_custom_color_picker_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -507,10 +507,10 @@
                     android:text="@string/about_sounds_usage" />
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -570,7 +570,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

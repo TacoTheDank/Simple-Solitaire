@@ -14,7 +14,7 @@
         android:paddingRight="@dimen/card_view_padding_horizontal"
         android:paddingBottom="@dimen/card_view_padding_vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -158,9 +158,9 @@
                 </TableLayout>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -528,9 +528,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card_view:cardBackgroundColor="@color/white"
@@ -677,7 +677,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

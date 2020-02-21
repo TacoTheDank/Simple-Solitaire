@@ -19,13 +19,14 @@
 package de.tobiasbielefeld.solitaire.ui.statistics;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

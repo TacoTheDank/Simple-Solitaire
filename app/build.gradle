@@ -43,10 +43,16 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
+    //https://github.com/material-components/material-components-android/releases
+    implementation 'com.google.android.material:material:1.1.0'
+
+    //https://developer.android.com/jetpack/androidx/releases/appcompat
+    // TODO: Add dark and DayNight mode to Settings Appearance
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    //https://developer.android.com/jetpack/androidx/releases/cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 
     implementation 'com.github.yukuku:ambilwarna:2.0.1'
     implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'

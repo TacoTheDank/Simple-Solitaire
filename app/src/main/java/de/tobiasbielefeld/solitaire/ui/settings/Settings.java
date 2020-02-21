@@ -27,8 +27,9 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
-import android.support.v7.app.ActionBar;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.ActionBar;
 
 import java.util.ArrayList;
 import java.util.List;

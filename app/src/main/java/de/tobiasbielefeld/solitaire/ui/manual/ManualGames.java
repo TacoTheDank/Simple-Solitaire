@@ -21,7 +21,6 @@ package de.tobiasbielefeld.solitaire.ui.manual;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -34,6 +33,8 @@ import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import de.tobiasbielefeld.solitaire.R;
 
