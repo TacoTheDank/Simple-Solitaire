@@ -612,7 +612,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/about_further_contributors_3"
+                            android:id="@+id/about_further_contributors_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -620,7 +620,7 @@
                             android:text="@string/further_contributors_dankan1890" />
 
                         <TextView
-                            android:id="@+id/about_further_contributors_4"
+                            android:id="@+id/about_further_contributors_6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -634,7 +634,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/about_further_contributors_3"
+                            android:id="@+id/about_further_contributors_7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -642,7 +642,7 @@
                             android:text="@string/further_contributors_dseomn" />
 
                         <TextView
-                            android:id="@+id/about_further_contributors_4"
+                            android:id="@+id/about_further_contributors_8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -656,7 +656,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/about_further_contributors_3"
+                            android:id="@+id/about_further_contributors_9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -664,7 +664,7 @@
                             android:text="@string/further_contributors_TacoTheDank" />
 
                         <TextView
-                            android:id="@+id/about_further_contributors_4"
+                            android:id="@+id/about_further_contributors_10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
