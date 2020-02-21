@@ -25,7 +25,17 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_UNDO;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 /**
  * Manages the records, so the player can undo movements. for that it has an entry subclass
@@ -39,11 +49,6 @@ public class RecordList {
     private WaitForAnimationHandler handler;
 
     private boolean isWorking = false;
-
-    public void reset() {                                                                                  //delete the content on reset
-        entries.clear();
-    }
-
 
     public RecordList(GameManager gm) {
         setMaxRecords();
@@ -59,6 +64,10 @@ public class RecordList {
                 return false;
             }
         });
+    }
+
+    public void reset() {                                                                                  //delete the content on reset
+        entries.clear();
     }
 
     /**
@@ -231,6 +240,21 @@ public class RecordList {
         return isWorking;
     }
 
+    public void setMaxRecords() {
+        maxRecords = prefs.getSavedMaxNumberUndos();
+
+        while (entries.size() > maxRecords) {
+            entries.remove(0);
+        }
+    }
+
+    private void handleMessage() {
+        if (recordList.hasMoreToUndo()) {
+            recordList.undoMore();
+            handler.sendDelayed();
+        }
+    }
+
     public static class Entry {
         private ArrayList<Integer> moveOrder = new ArrayList<>();
         private ArrayList<Card> currentCards = new ArrayList<>();
@@ -238,14 +262,6 @@ public class RecordList {
         private ArrayList<Card> flipCards = new ArrayList<>();
 
         private boolean alreadyDecremented = false;
-
-        public ArrayList<Card> getCurrentCards() {
-            return currentCards;
-        }
-
-        public ArrayList<Stack> getCurrentOrigins() {
-            return currentOrigins;
-        }
 
         /**
          * This constructor is used to load saved entries.
@@ -325,6 +341,14 @@ public class RecordList {
             for (int i = 0; i < currentCards.size(); i++) {
                 moveOrder.add(0);
             }
+        }
+
+        public ArrayList<Card> getCurrentCards() {
+            return currentCards;
+        }
+
+        public ArrayList<Stack> getCurrentOrigins() {
+            return currentOrigins;
         }
 
         /**
@@ -449,21 +473,6 @@ public class RecordList {
 
         boolean hasMoreToDo() {
             return currentCards.size() != 0;
-        }
-    }
-
-    public void setMaxRecords() {
-        maxRecords = prefs.getSavedMaxNumberUndos();
-
-        while (entries.size() > maxRecords) {
-            entries.remove(0);
-        }
-    }
-
-    private void handleMessage() {
-        if (recordList.hasMoreToUndo()) {
-            recordList.undoMore();
-            handler.sendDelayed();
         }
     }
 }

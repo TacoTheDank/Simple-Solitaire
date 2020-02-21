@@ -63,59 +63,43 @@ import java.util.List;
  */
 public class DynamicListView extends ListView {
 
+    /**
+     * This TypeEvaluator is used to animate the BitmapDrawable back to its
+     * final location when the user lifts his finger by modifying the
+     * BitmapDrawable's bounds.
+     */
+    private final static TypeEvaluator<Rect> sBoundEvaluator = new TypeEvaluator<Rect>() {
+        public Rect evaluate(float fraction, Rect startValue, Rect endValue) {
+            return new Rect(interpolate(startValue.left, endValue.left, fraction),
+                    interpolate(startValue.top, endValue.top, fraction),
+                    interpolate(startValue.right, endValue.right, fraction),
+                    interpolate(startValue.bottom, endValue.bottom, fraction));
+        }
+
+        public int interpolate(int start, int end, float fraction) {
+            return (int) (start + fraction * (end - start));
+        }
+    };
     private final int MOVE_DURATION = 150;
-
+    private final int INVALID_ID = -1;
+    private final int INVALID_POINTER_ID = -1;
     public List<String> gameList;
-
     private int mLastEventY = -1;
-
     private int mDownY = -1;
     private int mDownX = -1;
-
     private int mTotalOffset = 0;
-
     private boolean mCellIsMobile = false;
     private boolean mIsMobileScrolling = false;
     private int mSmoothScrollAmountAtEdge = 0;
-
-    private final int INVALID_ID = -1;
     private long mAboveItemId = INVALID_ID;
     private long mMobileItemId = INVALID_ID;
     private long mBelowItemId = INVALID_ID;
-
     private BitmapDrawable mHoverCell;
     private Rect mHoverCellCurrentBounds;
     private Rect mHoverCellOriginalBounds;
-
-    private final int INVALID_POINTER_ID = -1;
     private int mActivePointerId = INVALID_POINTER_ID;
-
     private boolean mIsWaitingForScrollFinish = false;
     private int mScrollState = OnScrollListener.SCROLL_STATE_IDLE;
-
-    public DynamicListView(Context context) {
-        super(context);
-        init(context);
-    }
-
-    public DynamicListView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context);
-    }
-
-    public DynamicListView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
-    }
-
-    public void init(Context context) {
-        setOnItemLongClickListener(mOnItemLongClickListener);
-        setOnScrollListener(mScrollListener);
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        int SMOOTH_SCROLL_AMOUNT_AT_EDGE = 15;
-        mSmoothScrollAmountAtEdge = (int) (SMOOTH_SCROLL_AMOUNT_AT_EDGE / metrics.density);
-    }
-
     /**
      * Listens for long clicks on any items in the listview. When a cell has
      * been selected, the hover cell is created and set up.
@@ -140,6 +124,114 @@ public class DynamicListView extends ListView {
                     return true;
                 }
             };
+    /**
+     * This scroll listener is added to the listview in order to handle cell swapping
+     * when the cell is either at the top or bottom edge of the listview. If the hover
+     * cell is at either edge of the listview, the listview will begin scrolling. As
+     * scrolling takes place, the listview continuously checks if new cells became visible
+     * and determines whether they are potential candidates for a cell swap.
+     */
+    private OnScrollListener mScrollListener = new OnScrollListener() {
+
+        private int mPreviousFirstVisibleItem = -1;
+        private int mPreviousVisibleItemCount = -1;
+        private int mCurrentFirstVisibleItem;
+        private int mCurrentVisibleItemCount;
+        private int mCurrentScrollState;
+
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
+                             int totalItemCount) {
+            mCurrentFirstVisibleItem = firstVisibleItem;
+            mCurrentVisibleItemCount = visibleItemCount;
+
+            mPreviousFirstVisibleItem = (mPreviousFirstVisibleItem == -1) ? mCurrentFirstVisibleItem
+                    : mPreviousFirstVisibleItem;
+            mPreviousVisibleItemCount = (mPreviousVisibleItemCount == -1) ? mCurrentVisibleItemCount
+                    : mPreviousVisibleItemCount;
+
+            checkAndHandleFirstVisibleCellChange();
+            checkAndHandleLastVisibleCellChange();
+
+            mPreviousFirstVisibleItem = mCurrentFirstVisibleItem;
+            mPreviousVisibleItemCount = mCurrentVisibleItemCount;
+        }
+
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+            mCurrentScrollState = scrollState;
+            mScrollState = scrollState;
+            isScrollCompleted();
+        }
+
+        /**
+         * This method is in charge of invoking 1 of 2 actions. Firstly, if the listview
+         * is in a state of scrolling invoked by the hover cell being outside the bounds
+         * of the listview, then this scrolling event is continued. Secondly, if the hover
+         * cell has already been released, this invokes the animation for the hover cell
+         * to return to its correct position after the listview has entered an idle scroll
+         * state.
+         */
+        private void isScrollCompleted() {
+            if (mCurrentVisibleItemCount > 0 && mCurrentScrollState == SCROLL_STATE_IDLE) {
+                if (mCellIsMobile && mIsMobileScrolling) {
+                    handleMobileCellScroll();
+                } else if (mIsWaitingForScrollFinish) {
+                    touchEventsEnded();
+                }
+            }
+        }
+
+        /**
+         * Determines if the listview scrolled up enough to reveal a new cell at the
+         * top of the list. If so, then the appropriate parameters are updated.
+         */
+        public void checkAndHandleFirstVisibleCellChange() {
+            if (mCurrentFirstVisibleItem != mPreviousFirstVisibleItem) {
+                if (mCellIsMobile && mMobileItemId != INVALID_ID) {
+                    updateNeighborViewsForID(mMobileItemId);
+                    handleCellSwitch();
+                }
+            }
+        }
+
+        /**
+         * Determines if the listview scrolled down enough to reveal a new cell at the
+         * bottom of the list. If so, then the appropriate parameters are updated.
+         */
+        public void checkAndHandleLastVisibleCellChange() {
+            int currentLastVisibleItem = mCurrentFirstVisibleItem + mCurrentVisibleItemCount;
+            int previousLastVisibleItem = mPreviousFirstVisibleItem + mPreviousVisibleItemCount;
+            if (currentLastVisibleItem != previousLastVisibleItem) {
+                if (mCellIsMobile && mMobileItemId != INVALID_ID) {
+                    updateNeighborViewsForID(mMobileItemId);
+                    handleCellSwitch();
+                }
+            }
+        }
+    };
+
+    public DynamicListView(Context context) {
+        super(context);
+        init(context);
+    }
+
+    public DynamicListView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(context);
+    }
+
+    public DynamicListView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
+
+    public void init(Context context) {
+        setOnItemLongClickListener(mOnItemLongClickListener);
+        setOnScrollListener(mScrollListener);
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        int SMOOTH_SCROLL_AMOUNT_AT_EDGE = 15;
+        mSmoothScrollAmountAtEdge = (int) (SMOOTH_SCROLL_AMOUNT_AT_EDGE / metrics.density);
+    }
 
     /**
      * Creates the hover cell with the appropriate bitmap and of appropriate
@@ -379,7 +471,6 @@ public class DynamicListView extends ListView {
         list.set(indexTwo, temp);
     }
 
-
     /**
      * Resets all the appropriate fields to a default state while also animating
      * the hover cell back to its correct location.
@@ -447,24 +538,6 @@ public class DynamicListView extends ListView {
     }
 
     /**
-     * This TypeEvaluator is used to animate the BitmapDrawable back to its
-     * final location when the user lifts his finger by modifying the
-     * BitmapDrawable's bounds.
-     */
-    private final static TypeEvaluator<Rect> sBoundEvaluator = new TypeEvaluator<Rect>() {
-        public Rect evaluate(float fraction, Rect startValue, Rect endValue) {
-            return new Rect(interpolate(startValue.left, endValue.left, fraction),
-                    interpolate(startValue.top, endValue.top, fraction),
-                    interpolate(startValue.right, endValue.right, fraction),
-                    interpolate(startValue.bottom, endValue.bottom, fraction));
-        }
-
-        public int interpolate(int start, int end, float fraction) {
-            return (int) (start + fraction * (end - start));
-        }
-    };
-
-    /**
      * Determines whether this listview is in a scrolling state invoked
      * by the fact that the hover cell is out of the bounds of the listview;
      */
@@ -501,90 +574,4 @@ public class DynamicListView extends ListView {
     public void setList(ArrayList<String> List) {
         gameList = List;
     }
-
-    /**
-     * This scroll listener is added to the listview in order to handle cell swapping
-     * when the cell is either at the top or bottom edge of the listview. If the hover
-     * cell is at either edge of the listview, the listview will begin scrolling. As
-     * scrolling takes place, the listview continuously checks if new cells became visible
-     * and determines whether they are potential candidates for a cell swap.
-     */
-    private OnScrollListener mScrollListener = new OnScrollListener() {
-
-        private int mPreviousFirstVisibleItem = -1;
-        private int mPreviousVisibleItemCount = -1;
-        private int mCurrentFirstVisibleItem;
-        private int mCurrentVisibleItemCount;
-        private int mCurrentScrollState;
-
-        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
-                             int totalItemCount) {
-            mCurrentFirstVisibleItem = firstVisibleItem;
-            mCurrentVisibleItemCount = visibleItemCount;
-
-            mPreviousFirstVisibleItem = (mPreviousFirstVisibleItem == -1) ? mCurrentFirstVisibleItem
-                    : mPreviousFirstVisibleItem;
-            mPreviousVisibleItemCount = (mPreviousVisibleItemCount == -1) ? mCurrentVisibleItemCount
-                    : mPreviousVisibleItemCount;
-
-            checkAndHandleFirstVisibleCellChange();
-            checkAndHandleLastVisibleCellChange();
-
-            mPreviousFirstVisibleItem = mCurrentFirstVisibleItem;
-            mPreviousVisibleItemCount = mCurrentVisibleItemCount;
-        }
-
-        @Override
-        public void onScrollStateChanged(AbsListView view, int scrollState) {
-            mCurrentScrollState = scrollState;
-            mScrollState = scrollState;
-            isScrollCompleted();
-        }
-
-        /**
-         * This method is in charge of invoking 1 of 2 actions. Firstly, if the listview
-         * is in a state of scrolling invoked by the hover cell being outside the bounds
-         * of the listview, then this scrolling event is continued. Secondly, if the hover
-         * cell has already been released, this invokes the animation for the hover cell
-         * to return to its correct position after the listview has entered an idle scroll
-         * state.
-         */
-        private void isScrollCompleted() {
-            if (mCurrentVisibleItemCount > 0 && mCurrentScrollState == SCROLL_STATE_IDLE) {
-                if (mCellIsMobile && mIsMobileScrolling) {
-                    handleMobileCellScroll();
-                } else if (mIsWaitingForScrollFinish) {
-                    touchEventsEnded();
-                }
-            }
-        }
-
-        /**
-         * Determines if the listview scrolled up enough to reveal a new cell at the
-         * top of the list. If so, then the appropriate parameters are updated.
-         */
-        public void checkAndHandleFirstVisibleCellChange() {
-            if (mCurrentFirstVisibleItem != mPreviousFirstVisibleItem) {
-                if (mCellIsMobile && mMobileItemId != INVALID_ID) {
-                    updateNeighborViewsForID(mMobileItemId);
-                    handleCellSwitch();
-                }
-            }
-        }
-
-        /**
-         * Determines if the listview scrolled down enough to reveal a new cell at the
-         * bottom of the list. If so, then the appropriate parameters are updated.
-         */
-        public void checkAndHandleLastVisibleCellChange() {
-            int currentLastVisibleItem = mCurrentFirstVisibleItem + mCurrentVisibleItemCount;
-            int previousLastVisibleItem = mPreviousFirstVisibleItem + mPreviousVisibleItemCount;
-            if (currentLastVisibleItem != previousLastVisibleItem) {
-                if (mCellIsMobile && mMobileItemId != INVALID_ID) {
-                    updateNeighborViewsForID(mMobileItemId);
-                    handleCellSwitch();
-                }
-            }
-        }
-    };
 }

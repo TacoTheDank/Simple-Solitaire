@@ -36,8 +36,36 @@ import de.tobiasbielefeld.solitaire.games.NapoleonsTomb;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_CALCULATION_ALTERNATIVE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_CANFIELD_DRAW;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_FORTYEIGHT_LIMITED_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_DRAW;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_LIMITED_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_LIMITED_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SPIDERETTE_DIFFICULTY;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SPIDER_DIFFICULTY;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_BET_AMOUNT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_DRAW;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_MONEY_ENABLED;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_WIN_AMOUNT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_YUKON_RULES;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.

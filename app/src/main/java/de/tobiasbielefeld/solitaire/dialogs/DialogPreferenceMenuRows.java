@@ -26,7 +26,7 @@ import android.widget.Spinner;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape

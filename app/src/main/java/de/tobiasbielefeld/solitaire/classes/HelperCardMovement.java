@@ -41,15 +41,12 @@ import static de.tobiasbielefeld.solitaire.SharedData.animate;
 
 public abstract class HelperCardMovement {
 
+    protected GameManager gm;
     private String bundleName;
     private int timeDelta = 100;                     //in ms
     private HelperCardMovementHandler handler;
-
     private boolean running = false;
-
     private boolean paused = false;
-
-    protected GameManager gm;
 
     public HelperCardMovement(GameManager gm, String bundleName) {
         this.gm = gm;

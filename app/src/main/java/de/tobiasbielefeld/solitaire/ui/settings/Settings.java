@@ -50,8 +50,52 @@ import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceOnlyForThisGame;
 import de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceTextColor;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_BACKGROUND_COLOR;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_BACKGROUND_COLOR_CUSTOM;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_BACKGROUND_COLOR_TYPE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_BACKGROUND_MUSIC;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_BACKGROUND_VOLUME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_CARD_BACKGROUND;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_CARD_BACKGROUND_COLOR;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_CARD_DRAWABLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_ENSURE_MOVABILITY;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_FORCE_TABLET_LAYOUT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_GAME_LAYOUT_MARGINS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_HIDE_MENU_BUTTON;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_HIDE_SCORE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_HIDE_STATUS_BAR;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_HIDE_TIME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_IMMERSIVE_MODE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_LANGUAGE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_LEFT_HANDED_MODE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_MAX_NUMBER_UNDOS;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_MENU_BAR_POS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_MENU_BAR_POS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_MOVEMENT_SPEED;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_ORIENTATION;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SHOW_ADVANCED_SETTINGS;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SINGLE_TAP_ALL_GAMES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SOUND_ENABLED;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_TAP_TO_SELECT_ENABLED;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_TEXT_COLOR;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_WIN_SOUND;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.
@@ -59,38 +103,31 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
 
 public class Settings extends AppCompatPreferenceActivity {
 
+    //make this static so the preference fragments use the same intent
+    //don't forget: Android 8 doesn't call onCreate for the fragments, so there only one intent is
+    //created. Android 7 calls onCreate for each fragment and would create new intents
+    static Intent returnIntent;
+    CustomizationPreferenceFragment customizationPreferenceFragment;
     private Preference preferenceMenuBarPosition;
     private Preference preferenceMenuColumns;
     private Preference preferenceBackgroundVolume;
     private Preference preferenceMaxNumberUndos;
     private Preference preferenceGameLayoutMargins;
-
     private CheckBoxPreference preferenceSingleTapAllGames;
     private CheckBoxPreference preferenceTapToSelect;
     private CheckBoxPreference preferenceImmersiveMode;
-
     private DialogPreferenceCards preferenceCards;
     private DialogPreferenceCardBackground preferenceCardBackground;
     private DialogPreferenceBackgroundColor preferenceBackgroundColor;
     private DialogPreferenceTextColor preferenceTextColor;
     private DialogPreferenceOnlyForThisGame dialogPreferenceOnlyForThisGame;
-
     private CheckBoxPreferenceFourColorMode preferenceFourColorMode;
     private CheckBoxPreferenceHideAutoCompleteButton preferenceHideAutoCompleteButton;
     private CheckBoxPreferenceHideMenuButton preferenceHideMenuButton;
     private CheckBoxPreferenceHideScore preferenceHideScore;
     private CheckBoxPreferenceHideTime preferenceHideTime;
-
     private PreferenceCategory categoryOnlyForThisGame;
-
-    CustomizationPreferenceFragment customizationPreferenceFragment;
-
     private Sounds settingsSounds;
-
-    //make this static so the preference fragments use the same intent
-    //don't forget: Android 8 doesn't call onCreate for the fragments, so there only one intent is
-    //created. Android 7 calls onCreate for each fragment and would create new intents
-    static Intent returnIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -375,6 +412,12 @@ public class Settings extends AppCompatPreferenceActivity {
         preferenceBackgroundVolume.setSummary(String.format(Locale.getDefault(), "%s %%", volume));
     }
 
+    public void hidePreferenceOnlyForThisGame() {
+        if (dialogPreferenceOnlyForThisGame.canBeHidden()) {
+            customizationPreferenceFragment.getPreferenceScreen().removePreference(categoryOnlyForThisGame);
+        }
+    }
+
     public static class CustomizationPreferenceFragment extends CustomPreferenceFragment {
 
         @Override
@@ -416,12 +459,6 @@ public class Settings extends AppCompatPreferenceActivity {
             settings.updatePreferenceGameLayoutMarginsSummary();
             settings.updatePreferenceMenuBarPositionSummary();
             settings.hidePreferenceOnlyForThisGame();
-        }
-    }
-
-    public void hidePreferenceOnlyForThisGame() {
-        if (dialogPreferenceOnlyForThisGame.canBeHidden()) {
-            customizationPreferenceFragment.getPreferenceScreen().removePreference(categoryOnlyForThisGame);
         }
     }
 

@@ -20,7 +20,9 @@ import android.view.WindowManager;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
+import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
@@ -32,8 +34,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public abstract class AppCompatPreferenceActivity extends PreferenceActivity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private AppCompatDelegate mDelegate;
     HandlerStopBackgroundMusic handlerStopBackgroundMusic = new HandlerStopBackgroundMusic();
+    private AppCompatDelegate mDelegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

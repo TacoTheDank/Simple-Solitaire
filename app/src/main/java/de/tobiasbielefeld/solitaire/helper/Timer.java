@@ -21,8 +21,10 @@ package de.tobiasbielefeld.solitaire.helper;
 import de.tobiasbielefeld.solitaire.handler.HandlerTimer;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_WINNING_TIME;
 
 /**
  * Handles the timer, updates, saves and load the current time of playing.
@@ -114,11 +116,11 @@ public class Timer {
         return startTime;
     }
 
-    public void setWinningTime() {
-        winningTime = currentTime;
-    }
-
     public void setStartTime(long time) {
         startTime = time;
+    }
+
+    public void setWinningTime() {
+        winningTime = currentTime;
     }
 }

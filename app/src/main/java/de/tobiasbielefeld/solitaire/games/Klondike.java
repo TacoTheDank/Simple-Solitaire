@@ -27,11 +27,22 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.ALTERNATING_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES;
 
 /**
  * Klondike game! This game has 7 tableau stacks, 4 foundation fields,
@@ -59,6 +70,112 @@ public class Klondike extends Game {
         setNumberOfRecycles(PREF_KEY_KLONDIKE_NUMBER_OF_RECYCLES, DEFAULT_KLONDIKE_NUMBER_OF_RECYCLES);
 
         toggleRecycles(prefs.getSavedKlondikeLimitedRecycles());
+    }
+
+    public static void checkEmptyDiscardStack(Stack mainStack, Stack discard1, Stack discard2, Stack discard3, boolean deal1) {
+
+        if (deal1 && discard3.isEmpty() && !mainStack.isEmpty()) {
+            recordList.addToLastEntry(mainStack.getTopCard(), mainStack);
+            moveToStack(mainStack.getTopCard(), discard3, OPTION_NO_RECORD);
+        } else if (!deal1 && discard1.isEmpty() && discard2.isEmpty() && discard3.isEmpty() && !mainStack.isEmpty()) {
+
+            int size = min(3, mainStack.getSize());
+
+            ArrayList<Card> cards = new ArrayList<>();
+            ArrayList<Stack> origin = new ArrayList<>();
+
+            //add up to 3 cards from main to the first discard stack
+            for (int i = 0; i < size; i++) {
+                cards.add(mainStack.getTopCard());
+                origin.add(mainStack);
+                moveToStack(mainStack.getTopCard(), discard1, OPTION_NO_RECORD);
+                discard1.getTopCard().flipUp();
+            }
+
+            //then move up to 2 cards to the 2. and 3. discard stack
+            size = min(3, discard1.getSize());
+            if (size > 1) {
+                moveToStack(discard1.getCardFromTop(1), discard2, OPTION_NO_RECORD);
+                if (!cards.contains(discard2.getTopCard())) {
+                    cards.add(discard2.getTopCard());
+                    origin.add(discard1);
+                }
+            }
+            if (size > 0) {
+                moveToStack(discard1.getTopCard(), discard3, OPTION_NO_RECORD);
+                if (!cards.contains(discard3.getTopCard())) {
+                    cards.add(discard3.getTopCard());
+                    origin.add(discard1);
+                }
+            }
+
+            //reverse everything so the cards on the stack will be in the right order when using an undo
+            //the cards from 2. and 3 trash stack are in the right order again
+            ArrayList<Card> cardsReversed = new ArrayList<>();
+            ArrayList<Stack> originReversed = new ArrayList<>();
+            for (int i = 0; i < cards.size(); i++) {
+                cardsReversed.add(cards.get(cards.size() - 1 - i));
+                originReversed.add(origin.get(cards.size() - 1 - i));
+            }
+
+            if (!discard2.isEmpty()) {
+                discard2.getTopCard().bringToFront();
+            }
+            if (!discard3.isEmpty()) {
+                discard3.getTopCard().bringToFront();
+            }
+
+            //finally add the record
+            recordList.addToLastEntry(cardsReversed, originReversed);
+        }
+
+
+        if (!deal1 && (discard2.isEmpty() || discard3.isEmpty()) && discard1.getSize() > 1) {
+            ArrayList<Card> cards = new ArrayList<>();
+            ArrayList<Stack> origin = new ArrayList<>();
+
+            //add the cards to the first discard pile
+            while (!discard2.isEmpty()) {
+                cards.add(discard2.getTopCard());
+                origin.add(discard2);
+                moveToStack(discard2.getTopCard(), discard1, OPTION_NO_RECORD);
+            }
+
+            //and then move cards from there to fill the discard stacks
+            if (discard1.getSize() > 1) {
+                moveToStack(discard1.getCardFromTop(1), discard2, OPTION_NO_RECORD);
+                if (!cards.contains(discard2.getTopCard())) {
+                    cards.add(discard2.getTopCard());
+                    origin.add(discard1);
+                }
+            }
+            if (!discard1.isEmpty()) {
+                moveToStack(discard1.getTopCard(), discard3, OPTION_NO_RECORD);
+                if (!cards.contains(discard3.getTopCard())) {
+                    cards.add(discard3.getTopCard());
+                    origin.add(discard1);
+                }
+            }
+
+            //reverse order for the record
+            ArrayList<Card> cardsReversed = new ArrayList<>();
+            ArrayList<Stack> originReversed = new ArrayList<>();
+            for (int i = 0; i < cards.size(); i++) {
+                cardsReversed.add(cards.get(cards.size() - 1 - i));
+                originReversed.add(origin.get(cards.size() - 1 - i));
+            }
+
+            if (!discard2.isEmpty()) {
+                discard2.getTopCard().bringToFront();
+            }
+
+            if (!discard3.isEmpty()) {
+                discard3.getTopCard().bringToFront();
+            }
+
+            //and add it IN FRONT of the last entry
+            recordList.addToLastEntry(cardsReversed, originReversed);
+        }
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {
@@ -465,111 +582,5 @@ public class Klondike extends Game {
 
         boolean deal1 = prefs.getSavedKlondikeVegasDrawModeOld(whichGame).equals("1");
         checkEmptyDiscardStack(getMainStack(), stacks[11], stacks[12], stacks[13], deal1);
-    }
-
-    public static void checkEmptyDiscardStack(Stack mainStack, Stack discard1, Stack discard2, Stack discard3, boolean deal1) {
-
-        if (deal1 && discard3.isEmpty() && !mainStack.isEmpty()) {
-            recordList.addToLastEntry(mainStack.getTopCard(), mainStack);
-            moveToStack(mainStack.getTopCard(), discard3, OPTION_NO_RECORD);
-        } else if (!deal1 && discard1.isEmpty() && discard2.isEmpty() && discard3.isEmpty() && !mainStack.isEmpty()) {
-
-            int size = min(3, mainStack.getSize());
-
-            ArrayList<Card> cards = new ArrayList<>();
-            ArrayList<Stack> origin = new ArrayList<>();
-
-            //add up to 3 cards from main to the first discard stack
-            for (int i = 0; i < size; i++) {
-                cards.add(mainStack.getTopCard());
-                origin.add(mainStack);
-                moveToStack(mainStack.getTopCard(), discard1, OPTION_NO_RECORD);
-                discard1.getTopCard().flipUp();
-            }
-
-            //then move up to 2 cards to the 2. and 3. discard stack
-            size = min(3, discard1.getSize());
-            if (size > 1) {
-                moveToStack(discard1.getCardFromTop(1), discard2, OPTION_NO_RECORD);
-                if (!cards.contains(discard2.getTopCard())) {
-                    cards.add(discard2.getTopCard());
-                    origin.add(discard1);
-                }
-            }
-            if (size > 0) {
-                moveToStack(discard1.getTopCard(), discard3, OPTION_NO_RECORD);
-                if (!cards.contains(discard3.getTopCard())) {
-                    cards.add(discard3.getTopCard());
-                    origin.add(discard1);
-                }
-            }
-
-            //reverse everything so the cards on the stack will be in the right order when using an undo
-            //the cards from 2. and 3 trash stack are in the right order again
-            ArrayList<Card> cardsReversed = new ArrayList<>();
-            ArrayList<Stack> originReversed = new ArrayList<>();
-            for (int i = 0; i < cards.size(); i++) {
-                cardsReversed.add(cards.get(cards.size() - 1 - i));
-                originReversed.add(origin.get(cards.size() - 1 - i));
-            }
-
-            if (!discard2.isEmpty()) {
-                discard2.getTopCard().bringToFront();
-            }
-            if (!discard3.isEmpty()) {
-                discard3.getTopCard().bringToFront();
-            }
-
-            //finally add the record
-            recordList.addToLastEntry(cardsReversed, originReversed);
-        }
-
-
-        if (!deal1 && (discard2.isEmpty() || discard3.isEmpty()) && discard1.getSize() > 1) {
-            ArrayList<Card> cards = new ArrayList<>();
-            ArrayList<Stack> origin = new ArrayList<>();
-
-            //add the cards to the first discard pile
-            while (!discard2.isEmpty()) {
-                cards.add(discard2.getTopCard());
-                origin.add(discard2);
-                moveToStack(discard2.getTopCard(), discard1, OPTION_NO_RECORD);
-            }
-
-            //and then move cards from there to fill the discard stacks
-            if (discard1.getSize() > 1) {
-                moveToStack(discard1.getCardFromTop(1), discard2, OPTION_NO_RECORD);
-                if (!cards.contains(discard2.getTopCard())) {
-                    cards.add(discard2.getTopCard());
-                    origin.add(discard1);
-                }
-            }
-            if (!discard1.isEmpty()) {
-                moveToStack(discard1.getTopCard(), discard3, OPTION_NO_RECORD);
-                if (!cards.contains(discard3.getTopCard())) {
-                    cards.add(discard3.getTopCard());
-                    origin.add(discard1);
-                }
-            }
-
-            //reverse order for the record
-            ArrayList<Card> cardsReversed = new ArrayList<>();
-            ArrayList<Stack> originReversed = new ArrayList<>();
-            for (int i = 0; i < cards.size(); i++) {
-                cardsReversed.add(cards.get(cards.size() - 1 - i));
-                originReversed.add(origin.get(cards.size() - 1 - i));
-            }
-
-            if (!discard2.isEmpty()) {
-                discard2.getTopCard().bringToFront();
-            }
-
-            if (!discard3.isEmpty()) {
-                discard3.getTopCard().bringToFront();
-            }
-
-            //and add it IN FRONT of the last entry
-            recordList.addToLastEntry(cardsReversed, originReversed);
-        }
     }
 }

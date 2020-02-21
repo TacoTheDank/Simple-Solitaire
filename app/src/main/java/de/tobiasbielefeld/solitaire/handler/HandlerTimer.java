@@ -26,7 +26,10 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /**
  * Handler to update the current time and show it

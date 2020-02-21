@@ -30,7 +30,8 @@ import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import de.tobiasbielefeld.solitaire.classes.DynamicListView;
 import de.tobiasbielefeld.solitaire.classes.StableArrayAdapter;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * dialog for changing the rows shown in the menu. It uses different values for portrait and landscape
@@ -38,8 +39,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class DialogPreferenceMenuOrder extends CustomDialogPreference {
 
-    private ArrayList<String> gameList;
     StableArrayAdapter adapter;
+    private ArrayList<String> gameList;
 
     public DialogPreferenceMenuOrder(Context context, AttributeSet attrs) {
         super(context, attrs);

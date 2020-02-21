@@ -10,15 +10,13 @@ import android.os.Build;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Created by tobias on 25.07.17.
  */
 
 public class Sounds {
-
-    public enum names {CARD_RETURN, CARD_SET, HINT, DEAL_CARDS, SHOW_AUTOCOMPLETE}
 
     private SoundPool sp;// = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
     private int[] soundList = new int[9];
@@ -104,5 +102,7 @@ public class Sounds {
     protected void createOldSoundPool() {
         sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
     }
+
+    public enum names {CARD_RETURN, CARD_SET, HINT, DEAL_CARDS, SHOW_AUTOCOMPLETE}
 
 }

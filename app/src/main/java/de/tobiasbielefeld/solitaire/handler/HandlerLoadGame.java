@@ -21,7 +21,7 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 
 /**
  * load the game data in a handler which waits a bit, so the initial card deal looks smoother

@@ -29,7 +29,14 @@ import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 /**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)

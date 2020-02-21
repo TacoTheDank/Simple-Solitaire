@@ -24,7 +24,7 @@ import android.util.AttributeSet;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * custom dialog to set the background music volume. it can be set from 0 (off) to 100%.

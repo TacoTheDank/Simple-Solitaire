@@ -12,7 +12,12 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.dialogs.DialogEnsureMovability;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.ensureMovability;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
 
 /**
  * Ensures that at least MIN_POSSIBLE_MOVEMENTS amount of movements are possible at the start of a game.
@@ -89,6 +94,10 @@ public class EnsureMovability {
 
     private void dismissDialog() {
         dialog.dismiss();
+    }
+
+    public interface ShowDialog {
+        void show(DialogEnsureMovability dialog);
     }
 
     private static class FindMoves extends AsyncTask<Object, Void, Boolean> {
@@ -203,9 +212,5 @@ public class EnsureMovability {
             isInterrupted = true;
             cancel(true);
         }
-    }
-
-    public interface ShowDialog {
-        void show(DialogEnsureMovability dialog);
     }
 }

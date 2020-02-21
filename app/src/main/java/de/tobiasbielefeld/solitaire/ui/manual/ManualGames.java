@@ -37,7 +37,9 @@ import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 /**
  * Games Page contains a button for each game. If one button is pressed, the view with the buttons
@@ -170,13 +172,13 @@ public class ManualGames extends Fragment implements View.OnClickListener {
         }
     }
 
-    public interface GamePageShown {
-        void setGamePageShown(boolean value);
-    }
-
     @Override
     public void onDetach() {
         mCallback = null;
         super.onDetach();
+    }
+
+    public interface GamePageShown {
+        void setGamePageShown(boolean value);
     }
 }

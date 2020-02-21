@@ -5,7 +5,8 @@ import android.os.Message;
 
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
 
 /**
  * This handler just waits until all card animations are over, then executes a method.
@@ -41,6 +42,12 @@ public class WaitForAnimationHandler {
         handler.sendEmptyMessage(0);
     }
 
+    public interface MessageCallBack {
+        void doAfterAnimation();
+
+        boolean additionalHaltCondition();
+    }
+
     private static class CustomHandler extends Handler {
         WaitForAnimationHandler base;
 
@@ -60,11 +67,5 @@ public class WaitForAnimationHandler {
                 base.messageCallBack.doAfterAnimation();
             }
         }
-    }
-
-    public interface MessageCallBack {
-        void doAfterAnimation();
-
-        boolean additionalHaltCondition();
     }
 }

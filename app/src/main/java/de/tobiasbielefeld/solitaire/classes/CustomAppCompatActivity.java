@@ -27,7 +27,10 @@ import android.view.WindowManager;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.LocaleChanger;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
+import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
 
 /**
  * Custom AppCompatActivity to implement language changing in attachBaseContext()

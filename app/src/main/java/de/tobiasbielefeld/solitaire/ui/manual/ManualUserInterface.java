@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
 
 /**
  * Just show a textView for the user interface page

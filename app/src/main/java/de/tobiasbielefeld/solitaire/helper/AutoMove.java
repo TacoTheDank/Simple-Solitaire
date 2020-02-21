@@ -26,7 +26,11 @@ import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.games.Pyramid;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 /**
  * if the last card on the tableau is flipped up, the auto complete can be run. it simply test

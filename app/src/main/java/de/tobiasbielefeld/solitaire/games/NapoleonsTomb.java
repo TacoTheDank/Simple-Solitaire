@@ -27,10 +27,17 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.DOESNT_MATTER;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_NAPOLEONSTOMB_NUMBER_OF_RECYCLES;
 
 /**
  * Napoleon's tomb game! Follows the rules from here: http://www.pahnation.com/how-to-play-napoleons-tomb/

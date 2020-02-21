@@ -33,7 +33,7 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Dialog for changing the background color. It uses a custom layout, so I can dynamically update

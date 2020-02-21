@@ -27,8 +27,15 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_PYRAMID_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES;
 
 /**
  * Pyramid Solitaire! It has a lot of stacks.
@@ -40,12 +47,6 @@ public class Pyramid extends Game {
 
     ArrayList<Card> cardsToMove = new ArrayList<>();
     ArrayList<Stack> origins = new ArrayList<>();
-
-    @Override
-    public void reset() {
-        super.reset();
-        cardsToMove.clear();
-    }
 
     public Pyramid() {
         setNumberOfDecks(1);
@@ -62,6 +63,12 @@ public class Pyramid extends Game {
         setNumberOfRecycles(PREF_KEY_PYRAMID_NUMBER_OF_RECYCLES, DEFAULT_PYRAMID_NUMBER_OF_RECYCLES);
 
         toggleRecycles(prefs.getSavedPyramidLimitedRecycles());
+    }
+
+    @Override
+    public void reset() {
+        super.reset();
+        cardsToMove.clear();
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape, Context context) {

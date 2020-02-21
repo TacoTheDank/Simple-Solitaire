@@ -22,8 +22,14 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_VEGAS_MONEY;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_VEGAS_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_VEGAS_NUMBER_OF_RECYCLES;
 
 /**
  * Vegas game! It's like Klondike, but with some changes and different scoring.

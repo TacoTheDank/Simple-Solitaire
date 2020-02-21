@@ -29,7 +29,13 @@ import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 /**
  * Shows hints. It has a handler which shows up to MAX_NUMBER_OF_HINTS hints.

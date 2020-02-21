@@ -27,11 +27,21 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.DOESNT_MATTER;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_FORTYEIGHT_NUMBER_OF_RECYCLES;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_FORTYEIGHT_NUMBER_OF_RECYCLES;
 
 /**
  * Forty&Eight game! it's pretty hard to win

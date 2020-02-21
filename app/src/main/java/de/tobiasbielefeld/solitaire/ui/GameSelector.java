@@ -27,8 +27,11 @@ import de.tobiasbielefeld.solitaire.ui.about.AboutActivity;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_CURRENT_GAME;
 
 public class GameSelector extends CustomAppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnTouchListener {

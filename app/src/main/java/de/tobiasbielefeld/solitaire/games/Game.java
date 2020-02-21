@@ -36,8 +36,22 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.helper.RecordList;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getPrng;
+import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_FAMILY;
 
 /**
  * Abstract class for all the games. See the DUMMY GAME for detailed explanation of everything!
@@ -1083,15 +1097,6 @@ public abstract class Game {
         pointsInDollar = true;
     }
 
-    protected void setUndoCosts(int costs) {
-        undoCosts = costs;
-    }
-
-    protected void setHintCosts(int costs) {
-        hintCosts = costs;
-    }
-
-
     //some getters,setters and simple methods, games should'nt override these
     public Stack getDiscardStack() throws ArrayIndexOutOfBoundsException {
         if (firstDiscardStackID == -1) {
@@ -1197,20 +1202,16 @@ public abstract class Game {
         return undoCosts;
     }
 
+    protected void setUndoCosts(int costs) {
+        undoCosts = costs;
+    }
+
     public int getHintCosts() {
         return hintCosts;
     }
 
-    public enum testMode {
-        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
-    }
-
-    public enum testMode2 {
-        SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
-    }
-
-    protected enum testMode3 {
-        ASCENDING, DESCENDING
+    protected void setHintCosts(int costs) {
+        hintCosts = costs;
     }
 
     public boolean mainStacksContain(int id) {
@@ -1272,11 +1273,6 @@ public abstract class Game {
         }
     }
 
-    public interface RecycleCounterCallback {
-        void updateTextView();
-
-    }
-
     public CardAndStack hintTest() {
         ArrayList<Card> emptyList = new ArrayList<>(3);
 
@@ -1286,5 +1282,22 @@ public abstract class Game {
     public void setOffScreenStack() {
         offScreenStack.setX(-2 * Card.width);
         offScreenStack.setY(-2 * Card.height);
+    }
+
+    public enum testMode {
+        SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
+    }
+
+    public enum testMode2 {
+        SAME_VALUE_AND_COLOR, SAME_VALUE_AND_FAMILY, SAME_VALUE
+    }
+
+    protected enum testMode3 {
+        ASCENDING, DESCENDING
+    }
+
+    public interface RecycleCounterCallback {
+        void updateTextView();
+
     }
 }

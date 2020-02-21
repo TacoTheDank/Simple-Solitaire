@@ -45,7 +45,7 @@ import de.tobiasbielefeld.solitaire.games.TriPeaks;
 import de.tobiasbielefeld.solitaire.games.Vegas;
 import de.tobiasbielefeld.solitaire.games.Yukon;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Everything about loading a game should be here. If you want to add a game, just expand the switch

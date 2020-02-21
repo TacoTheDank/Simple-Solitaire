@@ -27,10 +27,17 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode2.*;
-import static de.tobiasbielefeld.solitaire.games.Game.testMode3.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.ALTERNATING_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.DOESNT_MATTER;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.ASCENDING;
+import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 
 /**
  * Gypsy Solitaire! (Maybe needs another name)

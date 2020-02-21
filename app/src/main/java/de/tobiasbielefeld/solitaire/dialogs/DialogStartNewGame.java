@@ -26,7 +26,7 @@ import android.support.v7.app.AlertDialog;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogFragment;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 
 /**
  * Little confirmation dialog for starting a new game

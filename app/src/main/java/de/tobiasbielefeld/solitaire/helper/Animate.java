@@ -37,7 +37,9 @@ import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.classes.WaitForAnimationHandler;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 /**
  * class for all card animations. Like moving cards and fading them out and in for hints.
@@ -48,9 +50,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 public class Animate {
 
     public WaitForAnimationHandler handlerAfterWon;
+    int phase = 1;
     private GameManager gm;
     private float speedFactor;
-    int phase = 1;
 
     public Animate(GameManager gameManager) {
         this.gm = gameManager;

@@ -32,7 +32,8 @@ import android.util.Log;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Here is the code to load the individual pictures from the bitmaps located in drawables-nodpi.
@@ -52,6 +53,17 @@ public class Bitmaps {
     private Bitmap menu, menuText, stackBackground, cardBack, cardFront, cardPreview, cardPreview2;
     private Bitmap[] menuBitMaps;
     private int savedCardTheme;
+
+    /*
+     * puts two bitmaps vertically together
+     */
+    private static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
+        Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(), bmp1.getConfig());
+        Canvas canvas = new Canvas(bmOverlay);
+        canvas.drawBitmap(bmp1, 0, 0, null);
+        canvas.drawBitmap(bmp2, 0, bmp1.getHeight(), null);
+        return bmOverlay;
+    }
 
     public boolean checkResources() {
         return res != null;
@@ -164,17 +176,6 @@ public class Bitmaps {
         canvas.restore();
 
         return bitmap;
-    }
-
-    /*
-     * puts two bitmaps vertically together
-     */
-    private static Bitmap putTogether(Bitmap bmp1, Bitmap bmp2) {
-        Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight() + bmp2.getHeight(), bmp1.getConfig());
-        Canvas canvas = new Canvas(bmOverlay);
-        canvas.drawBitmap(bmp1, 0, 0, null);
-        canvas.drawBitmap(bmp2, 0, bmp1.getHeight(), null);
-        return bmOverlay;
     }
 
     /**

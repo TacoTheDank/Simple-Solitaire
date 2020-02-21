@@ -34,7 +34,8 @@ import java.util.Locale;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.helper.Scores;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
 
 /**
  * Shows the recent scores of the current game

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_version">"Versión"</string>
-<string name="settings">"Ajustes"</string>
-<string name="game_manual">"Manual del juego"</string>
-<string name="game_score">"Puntuación"</string>
-<string name="game_time">"Tiempo"</string>
-<string name="game_cancel">"Cancelar"</string>
-<string name="game_confirm">"Confirmar"</string>
+    <string name="app_version">"Versión"</string>
+    <string name="settings">"Ajustes"</string>
+    <string name="game_manual">"Manual del juego"</string>
+    <string name="game_score">"Puntuación"</string>
+    <string name="game_time">"Tiempo"</string>
+    <string name="game_cancel">"Cancelar"</string>
+    <string name="game_confirm">"Confirmar"</string>
 </resources>

@@ -23,7 +23,9 @@ import android.os.Bundle;
 import de.tobiasbielefeld.solitaire.classes.HelperCardMovement;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 public class DealCards extends HelperCardMovement {
 

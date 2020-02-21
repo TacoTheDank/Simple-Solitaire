@@ -25,7 +25,17 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.moveToStack;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
 
 /**
  * Contains everything related to cards. The view is a custom image view, which overrides some
@@ -34,10 +44,16 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Card {
 
-    public enum movements {INSTANT, NONE, DEFAULT}
-
+    public static final int STATE_FACED_UP = 1;
+    public static final int STATE_INVISIBLE = 2;
+    //no enum, I want to explicitly set the values, because they are saved in the sharedPref and
+    private static final int STATE_FACED_DOWN = 0;
     public static int width, height;                      //width and height calculated in relation of the screen dimensions in Main activity
     public static Bitmap background;
+    public static int ACE = 1;
+    public static int JOKER = 11;
+    public static int QUEEN = 12;
+    public static int KING = 13;
     private static Bitmap[] drawables = new Bitmap[52];
     public CustomImageView view;                          //the image view of the card, for easier code not private
     private int color;                                    //1=clubs 2=hearts 3=Spades 4=diamonds
@@ -47,16 +63,6 @@ public class Card {
     private boolean isUp;                                 //indicates if the card is placed upwards or backwards
     private boolean isInvisible;
     private PointF oldLocation = new PointF();            //old location so cards can be moved back if they can't placed on a new stack
-
-    public static int ACE = 1;
-    public static int JOKER = 11;
-    public static int QUEEN = 12;
-    public static int KING = 13;
-
-    //no enum, I want to explicitly set the values, because they are saved in the sharedPref and
-    private static final int STATE_FACED_DOWN = 0;
-    public static final int STATE_FACED_UP = 1;
-    public static final int STATE_INVISIBLE = 2;
 
     /**
      * Sets id, color and value. The cards are initialized at game start with a for loop.
@@ -71,12 +77,6 @@ public class Card {
         this.id = id;
         color = currentGame.cardDrawablesOrder[(id % 52) / 13];
         value = (id % 13) + 1;
-    }
-
-    public void setImageBitmap(Bitmap bitmap) {
-        if (!stopUiUpdates) {
-            view.setImageBitmap(bitmap);
-        }
     }
 
     /**
@@ -164,6 +164,12 @@ public class Card {
                     //cards[i].removeFromGame();
                     break;
             }
+        }
+    }
+
+    public void setImageBitmap(Bitmap bitmap) {
+        if (!stopUiUpdates) {
+            view.setImageBitmap(bitmap);
         }
     }
 
@@ -412,4 +418,6 @@ public class Card {
         view.setVisibility(View.VISIBLE);
         moveToStack(this, moveTo);
     }
+
+    public enum movements {INSTANT, NONE, DEFAULT}
 }

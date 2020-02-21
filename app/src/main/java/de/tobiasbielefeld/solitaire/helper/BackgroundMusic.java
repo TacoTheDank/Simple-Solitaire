@@ -24,8 +24,10 @@ import android.os.AsyncTask;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.paused;
+import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.playing;
+import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.stopped;
 
 
 /**
@@ -33,8 +35,6 @@ import static de.tobiasbielefeld.solitaire.helper.BackgroundMusic.status.*;
  */
 
 public class BackgroundMusic extends AsyncTask<Context, Void, Void> {
-
-    public enum status {stopped, paused, playing}
 
     private MediaPlayer player;
     private String currentlyPlaying = "";
@@ -139,5 +139,7 @@ public class BackgroundMusic extends AsyncTask<Context, Void, Void> {
 
         currentStatus = playing;
     }
+
+    public enum status {stopped, paused, playing}
 
 }

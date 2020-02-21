@@ -34,8 +34,12 @@ import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 import static android.content.Context.MODE_PRIVATE;
 import static android.view.View.GONE;
 import static de.tobiasbielefeld.solitaire.SharedData.createBulletParagraph;
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_CURRENT_GAME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_SETTINGS_ONLY_FOR_THIS_GAME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_SETTINGS_ONLY_FOR_THIS_GAME;
 
 /**
  * Dialog to enable game individual settings.

@@ -38,36 +38,22 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
 
     // Minimum text size for this text view
     public static final float MIN_TEXT_SIZE = 5;
-
-    // Interface for resize notifications
-    public interface OnTextResizeListener {
-        void onTextResize(TextView textView, float oldSize, float newSize);
-    }
-
     // Our ellipse string
     private static final String mEllipsis = "...";
-
     // Registered resize listener
     private OnTextResizeListener mTextResizeListener;
-
     // Flag for text and/or size changes to force a resize
     private boolean mNeedsResize = false;
-
     // Text size that is set from code. This acts as a starting point for resizing
     private float mTextSize;
-
     // Temporary upper bounds on the starting text size
     private float mMaxTextSize = 0;
-
     // Lower bounds for text size
     private float mMinTextSize = MIN_TEXT_SIZE;
-
     // Text view line spacing multiplier
     private float mSpacingMult = 1.0f;
-
     // Text view additional line spacing
     private float mSpacingAdd = 0.0f;
-
     // Add ellipsis to text that overflows at the smallest text size
     private boolean mAddEllipsis = true;
 
@@ -145,17 +131,6 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
     }
 
     /**
-     * Set the upper text size limit and invalidate the view
-     *
-     * @param maxTextSize
-     */
-    public void setMaxTextSize(float maxTextSize) {
-        mMaxTextSize = maxTextSize;
-        requestLayout();
-        invalidate();
-    }
-
-    /**
      * Return upper text size limit
      *
      * @return
@@ -165,12 +140,12 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
     }
 
     /**
-     * Set the lower text size limit and invalidate the view
+     * Set the upper text size limit and invalidate the view
      *
-     * @param minTextSize
+     * @param maxTextSize
      */
-    public void setMinTextSize(float minTextSize) {
-        mMinTextSize = minTextSize;
+    public void setMaxTextSize(float maxTextSize) {
+        mMaxTextSize = maxTextSize;
         requestLayout();
         invalidate();
     }
@@ -185,12 +160,14 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
     }
 
     /**
-     * Set flag to add ellipsis to text that overflows at the smallest text size
+     * Set the lower text size limit and invalidate the view
      *
-     * @param addEllipsis
+     * @param minTextSize
      */
-    public void setAddEllipsis(boolean addEllipsis) {
-        mAddEllipsis = addEllipsis;
+    public void setMinTextSize(float minTextSize) {
+        mMinTextSize = minTextSize;
+        requestLayout();
+        invalidate();
     }
 
     /**
@@ -200,6 +177,15 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
      */
     public boolean getAddEllipsis() {
         return mAddEllipsis;
+    }
+
+    /**
+     * Set flag to add ellipsis to text that overflows at the smallest text size
+     *
+     * @param addEllipsis
+     */
+    public void setAddEllipsis(boolean addEllipsis) {
+        mAddEllipsis = addEllipsis;
     }
 
     /**
@@ -326,6 +312,11 @@ public class AutoResizingTextView extends android.support.v7.widget.AppCompatTex
         // Measure using a static layout
         StaticLayout layout = new StaticLayout(source, paintCopy, width, Alignment.ALIGN_NORMAL, mSpacingMult, mSpacingAdd, true);
         return layout.getHeight();
+    }
+
+    // Interface for resize notifications
+    public interface OnTextResizeListener {
+        void onTextResize(TextView textView, float oldSize, float newSize);
     }
 
 }

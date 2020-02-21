@@ -31,7 +31,8 @@ import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Shows the high scores of the current game

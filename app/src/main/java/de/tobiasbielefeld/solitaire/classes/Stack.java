@@ -25,11 +25,19 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.bitmaps;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.leftHandedModeEnabled;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
 
 /**
- *  Contains everything around the cards. The current cards on it and the list of bitmaps for the
- *  backgrounds.
+ * Contains everything around the cards. The current cards on it and the list of bitmaps for the
+ * backgrounds.
  */
 
 public class Stack {
@@ -682,14 +690,6 @@ public class Stack {
         view.setY(Y);
     }
 
-    public enum SpacingDirection {
-        NONE, UP, LEFT, RIGHT, DOWN
-    }
-
-    public enum ArrowDirection {
-        LEFT, RIGHT
-    }
-
     public void applyDefaultSpacing() {
         spacing = defaultSpacing;
     }
@@ -733,5 +733,13 @@ public class Stack {
         } else {
             oldCard.flipDown();
         }
+    }
+
+    public enum SpacingDirection {
+        NONE, UP, LEFT, RIGHT, DOWN
+    }
+
+    public enum ArrowDirection {
+        LEFT, RIGHT
     }
 }

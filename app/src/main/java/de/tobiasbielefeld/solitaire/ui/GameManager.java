@@ -65,9 +65,37 @@ import de.tobiasbielefeld.solitaire.ui.statistics.StatisticsActivity;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.*;
-import static de.tobiasbielefeld.solitaire.helper.Preferences.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.RESTART_DIALOG;
+import static de.tobiasbielefeld.solitaire.SharedData.WON_DIALOG;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.autoMove;
+import static de.tobiasbielefeld.solitaire.SharedData.cardHighlight;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.dealCards;
+import static de.tobiasbielefeld.solitaire.SharedData.ensureMovability;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.handlerTestAfterMove;
+import static de.tobiasbielefeld.solitaire.SharedData.handlerTestIfWon;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.DOWN;
+import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_CURRENT_GAME;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.helper.Preferences.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
 
 /**
  * This is like the main activity, handles game input, controls the timer, loads and saves everything
@@ -81,12 +109,12 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     public TextView mainTextViewTime, mainTextViewScore, mainTextViewRecycles; //textViews for time, scores and re-deals
     public RelativeLayout layoutGame;                                          //contains the game stacks and cards
     public ImageView highlight;
+    public ImageView hideMenu;
+    public LinearLayout menuBar;
     private long firstTapTime;                                                 //stores the time of first tapping on a card
     private CardAndStack tapped = null;
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
-    public ImageView hideMenu;
-    public LinearLayout menuBar;
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.

@@ -11,18 +11,16 @@ import java.util.StringTokenizer;
 
 import de.tobiasbielefeld.solitaire.R;
 
-import static android.content.Context.*;
-import static de.tobiasbielefeld.solitaire.SharedData.*;
-import static de.tobiasbielefeld.solitaire.helper.Scores.*;
+import static android.content.Context.MODE_PRIVATE;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.helper.Scores.MAX_SAVED_SCORES;
 
 /**
  * Handles all the preference stuff
  */
 
 public class Preferences {
-
-    private SharedPreferences savedSharedData;
-    private SharedPreferences savedGameData;
 
     //Strings
     public static String PREF_KEY_NEXT_CARD_VALUES;
@@ -32,7 +30,6 @@ public class Preferences {
     public static String PREF_KEY_ORDER;
     public static String PREF_KEY_SCORE;
     public static String PREF_KEY_SAVED_SCORES;
-
     public static String PREF_KEY_SAVED_RECENT_SCORES;
     public static String PREF_KEY_TOTAL_NUMBER_UNDOS;
     public static String PREF_KEY_TOTAL_HINTS_SHOWN;
@@ -42,7 +39,6 @@ public class Preferences {
     public static String PREF_KEY_HIDE_MENU_BUTTON;
     public static String PREF_KEY_STATISTICS_HIDE_WIN_PERCENTAGE;
     public static String OLD;
-
     public static String PREF_KEY_GAME_LAYOUT_MARGINS_PORTRAIT;
     public static String PREF_KEY_ENSURE_MOVABILITY;
     public static String PREF_KEY_ENSURE_MOVABILITY_MIN_MOVES;
@@ -238,6 +234,8 @@ public class Preferences {
     public static boolean DEFAULT_DEVELOPER_OPTION_INSTANT_WIN;
     public static boolean DEFAULT_DEVELOPER_OPTION_NO_SAVING;
     public static boolean DEFAULT_USE_TRUE_RANDOMISATION;
+    private SharedPreferences savedSharedData;
+    private SharedPreferences savedGameData;
 
     public Preferences(Context context) {
         loadStrings(context.getResources());
@@ -751,6 +749,10 @@ public class Preferences {
         return savedGameData.getBoolean(PREF_KEY_DEALING_CARDS, false);
     }
 
+    public void setDealingCards(boolean value) {
+        savedGameData.edit().putBoolean(PREF_KEY_DEALING_CARDS, value).apply();
+    }
+
     public boolean isWon() {
         return savedGameData.getBoolean(PREF_KEY_GAME_WON, DEFAULT_WON);
     }
@@ -808,11 +810,11 @@ public class Preferences {
         return getIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_ORDER);
     }
 
+    /* setters for individual game data */
+
     public ArrayList<Integer> getSavedRecordListFlipCards(String pos) {
         return getIntList(PREF_KEY_RECORD_LIST_ENTRY + pos + PREF_KEY_FLIP_CARD);
     }
-
-    /* setters for individual game data */
 
     public void saveTotalPointsEarned(long value) {
         savedGameData.edit().putLong(PREF_KEY_TOTAL_POINTS_EARNED, value).apply();
@@ -924,10 +926,6 @@ public class Preferences {
 
     public void saveFirstRun(boolean value) {
         savedGameData.edit().putBoolean(PREF_KEY_GAME_FIRST_RUN, value).apply();
-    }
-
-    public void setDealingCards(boolean value) {
-        savedGameData.edit().putBoolean(PREF_KEY_DEALING_CARDS, value).apply();
     }
 
     public void saveWon(boolean value) {

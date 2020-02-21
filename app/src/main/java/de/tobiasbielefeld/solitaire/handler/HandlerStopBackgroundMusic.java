@@ -21,7 +21,8 @@ package de.tobiasbielefeld.solitaire.handler;
 import android.os.Handler;
 import android.os.Message;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
+import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
 
 /**
  * Check here if the application is closed. If the activityCounter reaches zero, no activity

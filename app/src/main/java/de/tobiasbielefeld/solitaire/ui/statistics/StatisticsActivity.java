@@ -31,7 +31,11 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.dialogs.DialogHighScoreDelete;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
 
 public class StatisticsActivity extends CustomAppCompatActivity {
 
@@ -93,10 +97,6 @@ public class StatisticsActivity extends CustomAppCompatActivity {
         this.callback = callback;
     }
 
-    public interface HideWinPercentage {
-        void sendNewState(boolean state);
-    }
-
     /**
      * deletes the data, reloads the activity
      */
@@ -108,5 +108,9 @@ public class StatisticsActivity extends CustomAppCompatActivity {
 
         finish();
         startActivity(getIntent());
+    }
+
+    public interface HideWinPercentage {
+        void sendNewState(boolean state);
     }
 }

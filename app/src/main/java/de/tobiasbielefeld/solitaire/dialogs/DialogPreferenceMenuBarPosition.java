@@ -34,10 +34,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class DialogPreferenceMenuBarPosition extends CustomDialogPreference {
 
-    RadioButton top, bottom, left, right;
-
     private static String BOTTOM = "bottom";
     private static String RIGHT = "right";
+    RadioButton top, bottom, left, right;
 
     public DialogPreferenceMenuBarPosition(Context context, AttributeSet attrs) {
         super(context, attrs);

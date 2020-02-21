@@ -9,7 +9,7 @@ import android.view.WindowManager;
 
 import de.tobiasbielefeld.solitaire.SharedData;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 /**
  * Little custom dialog fragment for the in game dialogs. I added a fullscreen mode, but the dialogs

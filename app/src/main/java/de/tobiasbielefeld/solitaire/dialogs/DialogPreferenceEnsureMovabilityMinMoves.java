@@ -47,13 +47,12 @@ public class DialogPreferenceEnsureMovabilityMinMoves
         extends CustomDialogPreference
         implements View.OnClickListener {
 
+    ArrayList<LoadGame.AllGameInformation> gameInfoList;
+    ArrayList<SharedPreferences> sharedPrefList = new ArrayList<>();
     private Button makeGamesWinnableButton;
     private String winnableText;
     private ArrayList<EditText> inputs;
     private int gameCount;
-
-    ArrayList<LoadGame.AllGameInformation> gameInfoList;
-    ArrayList<SharedPreferences> sharedPrefList = new ArrayList<>();
 
     public DialogPreferenceEnsureMovabilityMinMoves(Context context, AttributeSet attrs) {
         super(context, attrs);

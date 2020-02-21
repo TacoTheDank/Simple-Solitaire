@@ -35,7 +35,8 @@ import android.widget.ListView;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.isLargeTablet;
 
 /**
  * Manual Activity: Uses some fragments to show the manual pages.

@@ -26,7 +26,9 @@ import android.widget.EditText;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomDialogPreference;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.prefs;
+import static de.tobiasbielefeld.solitaire.SharedData.showToast;
+import static de.tobiasbielefeld.solitaire.SharedData.stringFormat;
 
 /*
  * custom dialog to set the bet and win amount in Vegas
