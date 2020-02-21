@@ -58,7 +58,7 @@
     <string name="game_longest_run">"Mayor secuencia:"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Felicidades!"</string>
+    <string name="dialog_win_title">"Felicidades!"</string>
     <string name="dialog_win_score">"Puntaje: %1$d"</string>
     <string name="dialog_win_bonus">"Bonus: %1$d"</string>
     <string name="dialog_win_total">"Total: %1$d"</string>
@@ -236,12 +236,12 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
     <string name="settings_hide_score">"Esconder puntaje"</string>
     <string name="settings_use_true_randomisation_title">"Usar verdadero aleatorio"</string>
     <string name="settings_developer_options">"Opciones de desarrollador"</string>
-    <string name="settings_developer_options_move_card_everwhere_title">"Mover las cartas a cualquier lugar"</string>
+    <string name="settings_developer_options_move_card_everywhere_title">"Mover las cartas a cualquier lugar"</string>
     <string name="settings_developer_options_instant_win_title">"Ganar instantáneamente"</string>
     <string name="settings_expert_settings">"Configuración avanzada"</string>
-    <string name="settings_spider_difficultiy_1">"1 (Fácil)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (Moderado)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (Difícil)"</string>
+    <string name="settings_spider_difficulty_1">"1 (Fácil)"</string>
+    <string name="settings_spider_difficulty_2">"2 (Moderado)"</string>
+    <string name="settings_spider_difficulty_3">"4 (Difícil)"</string>
     <string name="settings_language_default">"Idioma por defecto"</string>
     <string name="settings_language_english">"Inglés"</string>
     <string name="settings_language_esperanto">"Esperanto"</string>
@@ -280,8 +280,8 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
     <string name="statistics_button_deleted_all_entries">"Borrar todas las entradas"</string>
     <string name="statistics_time_of_day">"Día"</string>
     <string name="statistics_date">"Fecha"</string>
-    <string name="settings_diable_undo_costs">"Desactivar penalización por deshacer"</string>
-    <string name="settings_diable_hint_costs">"Desactivar penalización por pista"</string>
+    <string name="settings_disable_undo_costs">"Desactivar penalización por deshacer"</string>
+    <string name="settings_disable_hint_costs">"Desactivar penalización por pista"</string>
     <string name="statistics_high_scores">"Mayores Puntajes"</string>
     <string name="statistics_recent_scores">"Puntajes Recientes"</string>
     <string name="statistics_total_time">"Tiempo total jugado"</string>
@@ -332,7 +332,7 @@ Devolver todas las cartas de la pila de descarte a la pila principal: -200"</str
     <string name="settings_ensure_movability_winnable">"Ganable"</string>
     <string name="settings_reset_to_defaults">"Volver a los valores por defecto"</string>
     <string name="settings_language_chinese_simplified">"Chino (Simplificado)"</string>
-    <string name="settings_ensure_movability_cancle_search">"Cancelar e iniciar inmediatamente"</string>
+    <string name="settings_ensure_movability_cancel_search">"Cancelar e iniciar inmediatamente"</string>
     <string name="games_Maze">"Mazo"</string>
     <string name="settings_language_portuguese">"Portugues"</string>
     <string name="statistics_hide_win_percentage">"Esconder porcentaje de victorias"</string>

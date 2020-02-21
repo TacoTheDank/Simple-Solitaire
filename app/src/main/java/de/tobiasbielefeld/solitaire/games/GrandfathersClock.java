@@ -47,9 +47,9 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 public class GrandfathersClock extends Game {
 
     //to know which card gets on a empty foundation field
-    int[] foundationCardOrder = new int[]{7, 8, 9, 10, 11, 6, 12, 5, 4, 3, 2, 13};
+    private int[] foundationCardOrder = new int[]{7, 8, 9, 10, 11, 6, 12, 5, 4, 3, 2, 13};
     //which family is placed on the foundation fields
-    int[] foundationFamilyOrder = new int[]{2, 3, 0, 1, 2, 1, 3, 0, 3, 2, 1, 0};
+    private int[] foundationFamilyOrder = new int[]{2, 3, 0, 1, 2, 1, 3, 0, 3, 2, 1, 0};
 
     public GrandfathersClock() {
         setNumberOfDecks(1);

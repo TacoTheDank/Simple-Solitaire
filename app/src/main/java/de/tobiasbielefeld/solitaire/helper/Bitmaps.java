@@ -43,10 +43,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class Bitmaps {
 
-    static int NUM_CARD_THEMES = 10;
-    static int NUM_CARD_BACKGROUNDS = 10;
+    private static int NUM_CARD_THEMES = 10;
 
-    int menuWidth, menuHeight, stackBackgroundWidth, stackBackgroundHeight,
+    private int menuWidth, menuHeight, stackBackgroundWidth, stackBackgroundHeight,
             cardBackWidth, cardBackHeight, cardFrontWidth, cardFrontHeight,
             cardPreviewWidth, cardPreviewHeight, cardPreview2Width, cardPreview2Height;
     private Resources res;
@@ -265,6 +264,7 @@ public class Bitmaps {
 
         if (cardBack == null) {
             cardBack = BitmapFactory.decodeResource(res, R.drawable.backgrounds_cards);
+            int NUM_CARD_BACKGROUNDS = 10;
             cardBackWidth = cardBack.getWidth() / NUM_CARD_BACKGROUNDS;
             cardBackHeight = cardBack.getHeight() / 4;
         }

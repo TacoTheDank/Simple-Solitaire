@@ -43,10 +43,10 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_PYRAMID_N
 
 public class Pyramid extends Game {
 
-    int[] stackAboveID = new int[28];
+    private int[] stackAboveID = new int[28];
 
-    ArrayList<Card> cardsToMove = new ArrayList<>();
-    ArrayList<Stack> origins = new ArrayList<>();
+    private ArrayList<Card> cardsToMove = new ArrayList<>();
+    private ArrayList<Stack> origins = new ArrayList<>();
 
     public Pyramid() {
         setNumberOfDecks(1);

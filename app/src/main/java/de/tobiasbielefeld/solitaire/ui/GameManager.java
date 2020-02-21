@@ -147,7 +147,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         autoMove = new AutoMove(gm);
         hint = new Hint(gm);
-        scores = new Scores(gm);
+        scores = new Scores();
         gameLogic = new GameLogic(gm);
         animate = new Animate(gm);
         autoComplete = new AutoComplete(gm);
@@ -253,7 +253,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     layoutGame.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 } else {
-                    //noinspection deprecation
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
@@ -747,7 +746,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     layoutGame.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 } else {
-                    //noinspection deprecation
                     layoutGame.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 

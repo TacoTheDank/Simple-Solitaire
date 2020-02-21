@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/blue" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -98,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/yellow" />
+
         </LinearLayout>
 
     </TableRow>
@@ -127,6 +129,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/orange" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -149,6 +152,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/purple" />
+
         </LinearLayout>
 
     </TableRow>

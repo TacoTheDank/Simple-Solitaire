@@ -15,12 +15,12 @@
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_disable_undo_costs"
         android:key="@string/pref_key_disable_undo_costs"
-        android:title="@string/settings_diable_undo_costs" />
+        android:title="@string/settings_disable_undo_costs" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_disable_hint_costs"
         android:key="@string/pref_key_disable_hint_costs"
-        android:title="@string/settings_diable_hint_costs" />
+        android:title="@string/settings_disable_hint_costs" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_force_tablet_layout"

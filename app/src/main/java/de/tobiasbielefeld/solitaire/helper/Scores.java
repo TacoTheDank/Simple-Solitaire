@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
@@ -43,11 +42,9 @@ public class Scores {
     private long bonus;
     private long[][] savedHighScores = new long[MAX_SAVED_SCORES][3];   //array to hold the saved scores with score and time
     private long[][] savedRecentScores = new long[MAX_SAVED_SCORES][3]; //array to hold the saved scores with score and time
-    private GameManager gm;
     private UpdateScore callback;
 
-    public Scores(GameManager gm) {
-        this.gm = gm;
+    public Scores() {
     }
 
     /**
@@ -155,7 +152,7 @@ public class Scores {
     /**
      * Adds a bonus to the score, used after a game has been won
      */
-    public void updateBonus() {
+    void updateBonus() {
         long currentTime = timer.getCurrentTime(); //in seconds
         preBonus = score;
 
@@ -176,7 +173,7 @@ public class Scores {
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewHighScore(long newScore, long timeTaken) {
+    private void addNewHighScore(long newScore, long timeTaken) {
         if (!currentGame.processScore(newScore) || newScore <= 0) {
             return;
         }
@@ -211,7 +208,7 @@ public class Scores {
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewRecentScore(long newScore, long timeTaken) {
+    private void addNewRecentScore(long newScore, long timeTaken) {
         if (!currentGame.processScore(newScore)) {
             return;
         }
@@ -237,7 +234,7 @@ public class Scores {
      * Adds a new high score to the list. New score will be inserted at the last position
      * and moved in direction of the highest score until it is in the correct position
      */
-    public void addNewScore(boolean savesRecentScore) {
+    void addNewScore(boolean savesRecentScore) {
         long time = timer.getCurrentTime();
         addNewHighScore(score, time);
 

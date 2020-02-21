@@ -54,7 +54,7 @@
     <string name="game_longest_run">"Najdłuższa seria:"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Gratulacje!"</string>
+    <string name="dialog_win_title">"Gratulacje!"</string>
     <string name="dialog_win_score">"Punkty: %1$d"</string>
     <string name="dialog_win_bonus">"Premia: %1$d"</string>
     <string name="dialog_win_total">"Ogółem: %1$d"</string>
@@ -503,8 +503,8 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
     <string name="settings_use_true_randomisation_text">"Domyślna losowość pozwala uniknąć podobnych kart obok siebie. Zaznacz tę opcję, aby zastosować prawdziwą losowość."</string>
     <string name="settings_developer_options">"Opcje deweloperskie"</string>
     <string name="settings_developer_options_description">"Pobaw się naprawdę szalonymi ustawieniami!"</string>
-    <string name="settings_developer_options_move_card_everwhere_title">"Przenieś karty wszędzie"</string>
-    <string name="settings_developer_options_move_card_everwhere_text">"Karty można umieszczać na dowolnym stosie"</string>
+    <string name="settings_developer_options_move_card_everywhere_title">"Przenieś karty wszędzie"</string>
+    <string name="settings_developer_options_move_card_everywhere_text">"Karty można umieszczać na dowolnym stosie"</string>
     <string name="settings_developer_options_lock_text">"Ustawienia te są przeznaczone wyłącznie do celów testowych, użycie może powodować dziwne zachowania i awarie!"</string>
     <string name="settings_developer_options_play_every_card_title">"Graj każdą kartą"</string>
     <string name="settings_developer_options_play_every_card_text">"Można grać każdą odkrytą kartą"</string>
@@ -520,9 +520,9 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
     <string name="settings_portrait">"Pionowo"</string>
     <string name="settings_landscape">"Poziomo"</string>
     <string name="settings_landscape_upside_down">"Pozioma do góry nogami"</string>
-    <string name="settings_spider_difficultiy_1">"1 (łatwy)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (średni)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (trudny)"</string>
+    <string name="settings_spider_difficulty_1">"1 (łatwy)"</string>
+    <string name="settings_spider_difficulty_2">"2 (średni)"</string>
+    <string name="settings_spider_difficulty_3">"4 (trudny)"</string>
     <string name="settings_draw_1">"Rozdaj 1"</string>
     <string name="settings_draw_3">"Rozdaj 3"</string>
     <string name="settings_pyramid_difficulty_1">"Łatwy: gra jest wygrana gdy pole gry jest puste"</string>
@@ -573,8 +573,8 @@ Na stosach gry można przenosić tylko karty z wierzchu i tylko na stosy bazowe.
     <string name="statistics_button_deleted_all_entries">"Usunięto wszystkie wpisy"</string>
     <string name="statistics_time_of_day">"Godzina"</string>
     <string name="statistics_date">"Data"</string>
-    <string name="settings_diable_undo_costs">"Wyłącz karę za cofnięcie"</string>
-    <string name="settings_diable_hint_costs">"Wyłącz karę za wyświetlenie wskazówki"</string>
+    <string name="settings_disable_undo_costs">"Wyłącz karę za cofnięcie"</string>
+    <string name="settings_disable_hint_costs">"Wyłącz karę za wyświetlenie wskazówki"</string>
     <string name="statistics_high_scores">"Najlepsze wyniki"</string>
     <string name="statistics_recent_scores">"Ostatnie wyniki"</string>
     <string name="statistics_total_time">"Czas gry ogółem"</string>
@@ -684,7 +684,7 @@ Czy chcesz skasować ustawienia indywidualne dla następujących gier?"</string>
     <string name="settings_reset_to_defaults">"Przywróć wartości domyślne"</string>
     <string name="settings_text_color">"Kolor tekstu i stosów"</string>
     <string name="settings_language_chinese_simplified">"Chiński (uproszczony)"</string>
-    <string name="settings_ensure_movability_cancle_search">"Anuluj i natychmiast rozpocznij"</string>
+    <string name="settings_ensure_movability_cancel_search">"Anuluj i natychmiast rozpocznij"</string>
     <string name="games_Maze">"Labirynt"</string>
     <string name="games_Spiderette">"Pajączek"</string>
     <string name="manual_Spiderette_structure">"1 talia po 52 karty.

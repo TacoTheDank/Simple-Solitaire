@@ -168,7 +168,7 @@ public class RecordList {
         }
     }
 
-    public void undoMore() {
+    private void undoMore() {
         if (!entries.isEmpty()) {
             entries.get(entries.size() - 1).undoMore();
         }
@@ -215,7 +215,7 @@ public class RecordList {
         }
     }
 
-    public boolean hasMoreToUndo() {
+    private boolean hasMoreToUndo() {
         if (entries.isEmpty()) {
             return false;
         }
@@ -236,7 +236,7 @@ public class RecordList {
         }
     }
 
-    public boolean isWorking() {
+    boolean isWorking() {
         return isWorking;
     }
 

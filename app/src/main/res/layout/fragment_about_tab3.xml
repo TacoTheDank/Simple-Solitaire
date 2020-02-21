@@ -12,9 +12,6 @@
         android:paddingLeft="@dimen/card_view_padding_horizontal"
         android:paddingTop="@dimen/card_view_padding_vertical"
         android:paddingRight="@dimen/card_view_padding_horizontal"
-        android:paddingBottom="@dimen/card_view_padding_vertical">
-
-    </LinearLayout>
-
+        android:paddingBottom="@dimen/card_view_padding_vertical" />
 
 </ScrollView>

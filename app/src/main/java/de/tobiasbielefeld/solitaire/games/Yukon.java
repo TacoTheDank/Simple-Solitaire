@@ -132,7 +132,7 @@ public class Yukon extends Game {
         }
     }
 
-    boolean checkRules(Stack stack, Card card) {
+    private boolean checkRules(Stack stack, Card card) {
         boolean defaultRules = prefs.getSavedYukonRulesOld().equals("default");
 
         return canCardBePlaced(stack, card, defaultRules ? ALTERNATING_COLOR : SAME_FAMILY, DESCENDING);

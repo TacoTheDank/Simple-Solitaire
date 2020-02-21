@@ -9,14 +9,10 @@
     android:layout_alignParentRight="true"
     tools:context="de.tobiasbielefeld.solitaire.ui.GameSelector">
 
-
     <TableLayout
         android:id="@+id/tableLayoutGameChooser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
-
-    </TableLayout>
-
+        android:padding="10dp" />
 
 </ScrollView>

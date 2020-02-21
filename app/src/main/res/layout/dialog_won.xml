@@ -13,7 +13,7 @@
         android:paddingStart="10dp"
         android:paddingLeft="10dp"
         android:paddingBottom="10dp"
-        android:text="@string/dialog_win_titel"
+        android:text="@string/dialog_win_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <LinearLayout
@@ -46,6 +46,7 @@
                 android:text="@string/dialog_win_bonus"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black" />
+
         </LinearLayout>
 
         <TextView

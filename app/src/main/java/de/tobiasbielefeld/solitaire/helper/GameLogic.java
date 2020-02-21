@@ -63,7 +63,7 @@ public class GameLogic {
     /**
      * checks if the first card of a game has been moved, if so, increment the number of played games
      */
-    public void checkFirstMovement() {
+    void checkFirstMovement() {
         if (!movedFirstCard) {
             movedFirstCard = true;
         }
@@ -170,7 +170,7 @@ public class GameLogic {
         }
     }
 
-    public void newGameForEnsureMovability() {
+    void newGameForEnsureMovability() {
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
         redealForEnsureMovability();
@@ -201,7 +201,7 @@ public class GameLogic {
     /**
      * starts a new game, but with the same deal.
      */
-    public void redealForEnsureMovability() {
+    private void redealForEnsureMovability() {
 
         for (Stack stack : stacks) {
             stack.reset();
@@ -289,7 +289,7 @@ public class GameLogic {
      *
      * @param array The array to randomize
      */
-    public void randomize(Card[] array) {
+    private void randomize(Card[] array) {
         int index;
         Card dummy;
         Random random = getPrng();

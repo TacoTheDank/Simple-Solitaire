@@ -62,6 +62,7 @@
                         android:gravity="center"
                         android:text="1"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -90,6 +91,7 @@
                         android:gravity="center"
                         android:text="2"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -118,6 +120,7 @@
                         android:gravity="center"
                         android:text="3"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -204,6 +207,7 @@
                         android:gravity="center"
                         android:text="6"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -232,6 +236,7 @@
                         android:gravity="center"
                         android:text="7"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -260,6 +265,7 @@
                         android:gravity="center"
                         android:text="8"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -288,6 +294,7 @@
                         android:gravity="center"
                         android:text="9"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -316,6 +323,7 @@
                         android:gravity="center"
                         android:text="10"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 </LinearLayout>
 
             </TableRow>

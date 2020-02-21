@@ -49,8 +49,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 
 public class Animate {
 
-    public WaitForAnimationHandler handlerAfterWon;
-    int phase = 1;
+    private WaitForAnimationHandler handlerAfterWon;
+    private int phase = 1;
     private GameManager gm;
     private float speedFactor;
 
@@ -86,7 +86,7 @@ public class Animate {
      * Shows the win animation: Every card will move to the center of the screen. In the handler
      * after that the phase2 will be called and move every card out the screen.
      */
-    public void winAnimation() {
+    void winAnimation() {
         float posX = gm.layoutGame.getWidth() / 2 - Card.width / 2;
         float posY = gm.layoutGame.getHeight() / 2 - Card.height / 2;
 
@@ -101,7 +101,7 @@ public class Animate {
     /**
      * Moves every card out the screen as phase2 of the win animation
      */
-    public void wonAnimationPhase2() {
+    private void wonAnimationPhase2() {
         int direction = 0;
         int counter = 0;
         Random rand = new Random();
@@ -164,7 +164,7 @@ public class Animate {
      * @param offset      The position of the card above the top card of the destination
      * @param destination The destination of the movement
      */
-    public void cardHint(final Card card, final int offset, final Stack destination) {
+    void cardHint(final Card card, final int offset, final Stack destination) {
         card.bringToFront();
         card.saveOldLocation();
         PointF pointAtStack = destination.getPosition(offset);
@@ -256,7 +256,7 @@ public class Animate {
      * @param pX   X-coordinate of the destination
      * @param pY   Y-coordinate of the destination
      */
-    public void moveCardSlow(final Card card, final float pX, final float pY) {
+    private void moveCardSlow(final Card card, final float pX, final float pY) {
         final CustomImageView view = card.view;
 
         if (card.isInvisible()) {
@@ -389,7 +389,7 @@ public class Animate {
     /**
      * shows the auto complete button with a nice fade in animation
      */
-    public void showAutoCompleteButton() {
+    void showAutoCompleteButton() {
         Animation fade_in = AnimationUtils.loadAnimation(
                 gm.getApplicationContext(), R.anim.button_fade_in);
 

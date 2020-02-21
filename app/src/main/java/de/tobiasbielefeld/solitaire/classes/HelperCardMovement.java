@@ -138,7 +138,7 @@ public abstract class HelperCardMovement {
 
         private HelperCardMovement base;
 
-        public HelperCardMovementHandler(HelperCardMovement helperCardMovement) {
+        HelperCardMovementHandler(HelperCardMovement helperCardMovement) {
             this.base = helperCardMovement;
         }
 
@@ -164,7 +164,7 @@ public abstract class HelperCardMovement {
             }
         }
 
-        protected void sendMessage(int timeDelta) {
+        void sendMessage(int timeDelta) {
             sendEmptyMessageDelayed(0, timeDelta);
         }
     }

@@ -125,9 +125,9 @@
     </string-array>
 
     <string-array name="pref_spider_difficulty_titles" translatable="false">
-        <item>@string/settings_spider_difficultiy_1</item>
-        <item>@string/settings_spider_difficultiy_2</item>
-        <item>@string/settings_spider_difficultiy_3</item>
+        <item>@string/settings_spider_difficulty_1</item>
+        <item>@string/settings_spider_difficulty_2</item>
+        <item>@string/settings_spider_difficulty_3</item>
     </string-array>
 
     <string-array name="pref_draw_titles" translatable="false">

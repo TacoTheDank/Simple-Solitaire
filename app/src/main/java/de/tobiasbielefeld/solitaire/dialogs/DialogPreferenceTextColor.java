@@ -48,10 +48,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class DialogPreferenceTextColor extends CustomDialogPreference implements View.OnClickListener {
 
-    final int colorBlack = 0xff000000;
-    final int colorWhite = 0xffffffff;
+    private final int colorBlack = 0xff000000;
+    private final int colorWhite = 0xffffffff;
 
-    int colorValue;
+    private int colorValue;
 
     private ArrayList<LinearLayout> linearLayouts;
     private Context context;

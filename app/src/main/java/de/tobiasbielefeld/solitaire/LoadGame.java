@@ -131,7 +131,7 @@ public class LoadGame {
      * alphabetical default order) you need to update getMenuShownList(), getOrderedGameList() and
      * loadClass() !
      */
-    public void loadAllGames() {
+    void loadAllGames() {
         allGameInformation.clear();
 
         allGameInformation.add(new AllGameInformation(R.string.games_AcesUp, "AcesUp", false, 40));

@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.ui.manual;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,14 +37,12 @@ import de.tobiasbielefeld.solitaire.R;
 
 public class ManualFeedback extends Fragment implements View.OnClickListener {
 
-    Button buttonGoogle, buttonGitHub;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_manual_feedback, container, false);
 
-        buttonGoogle = view.findViewById(R.id.manual_feedback_button_google_play);
-        buttonGitHub = view.findViewById(R.id.manual_feedback_button_github);
+        Button buttonGoogle = view.findViewById(R.id.manual_feedback_button_google_play);
+        Button buttonGitHub = view.findViewById(R.id.manual_feedback_button_github);
 
         buttonGoogle.setOnClickListener(this);
         buttonGitHub.setOnClickListener(this);
@@ -57,7 +56,7 @@ public class ManualFeedback extends Fragment implements View.OnClickListener {
             case R.id.manual_feedback_button_google_play:
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_market_URL))));
-                } catch (android.content.ActivityNotFoundException e) {
+                } catch (ActivityNotFoundException e) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.app_web_URL))));
                 }
                 break;

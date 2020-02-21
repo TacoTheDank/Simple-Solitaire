@@ -36,8 +36,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.stopUiUpdates;
 
 public class EnsureMovability {
 
-    FindMoves findMoves;
-    DialogEnsureMovability dialog;
+    private FindMoves findMoves;
+    private DialogEnsureMovability dialog;
 
     private boolean paused = false;
 
@@ -60,7 +60,7 @@ public class EnsureMovability {
         findMoves.cancel(true);
     }
 
-    public boolean isRunning() {
+    private boolean isRunning() {
         return SharedData.stopUiUpdates;
     }
 
@@ -208,7 +208,7 @@ public class EnsureMovability {
             }
         }
 
-        public void interrupt() {
+        void interrupt() {
             isInterrupted = true;
             cancel(true);
         }

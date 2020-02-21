@@ -335,9 +335,9 @@ Google Playで評価を使用する: このアプリのページで評価を残�
     <string name="settings_portrait">"縦向き"</string>
     <string name="settings_landscape">"横向き"</string>
     <string name="settings_landscape_upside_down">"横向き上下反転"</string>
-    <string name="settings_spider_difficultiy_1">"1 (簡単)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (中)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (難しい)"</string>
+    <string name="settings_spider_difficulty_1">"1 (簡単)"</string>
+    <string name="settings_spider_difficulty_2">"2 (中)"</string>
+    <string name="settings_spider_difficulty_3">"4 (難しい)"</string>
     <string name="settings_draw_1">"ドロー 1"</string>
     <string name="settings_draw_3">"ドロー 3"</string>
     <string name="settings_pyramid_difficulty_1">"簡単: 場札が空のときにゲームに勝ち"</string>

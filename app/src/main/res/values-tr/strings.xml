@@ -54,7 +54,7 @@
     <string name="game_longest_run">"En uzun dizi:"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Tebrikler!"</string>
+    <string name="dialog_win_title">"Tebrikler!"</string>
     <string name="dialog_win_score">"Puan: %1$d"</string>
     <string name="dialog_win_bonus">"Bonus: %1$d"</string>
     <string name="dialog_win_total">"Toplam: %1$d"</string>
@@ -397,9 +397,9 @@ YASAL UYARI: Bu oyunda gerçek parayla oynamıyorsunuz :)"</string>
     <string name="settings_portrait">"Dikey"</string>
     <string name="settings_landscape">"Yatay"</string>
     <string name="settings_landscape_upside_down">"Ters Yatay"</string>
-    <string name="settings_spider_difficultiy_1">"1 (Kolay)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (Normal)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (Zor)"</string>
+    <string name="settings_spider_difficulty_1">"1 (Kolay)"</string>
+    <string name="settings_spider_difficulty_2">"2 (Normal)"</string>
+    <string name="settings_spider_difficulty_3">"4 (Zor)"</string>
     <string name="settings_draw_1">"1 Kart"</string>
     <string name="settings_draw_3">"3 Kart"</string>
     <string name="settings_pyramid_difficulty_1">"Kolay: Tablo boşaldığında oyun kazanılır"</string>

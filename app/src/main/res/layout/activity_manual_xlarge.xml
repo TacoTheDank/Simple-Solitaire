@@ -19,7 +19,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <LinearLayout
         android:id="@+id/linearLayoutMenuBar"
         android:layout_width="@dimen/drawer_size"
@@ -43,6 +42,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/appBarLayout"
         android:layout_toEndOf="@+id/linearLayoutMenuBar"
+        android:layout_toRightOf="@+id/linearLayoutMenuBar"
         android:background="@drawable/shadow_left_to_right" />
 
     <View

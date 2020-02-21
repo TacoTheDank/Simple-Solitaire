@@ -46,7 +46,7 @@ public class LocaleChanger {
         return setLocale(context);
     }
 
-    public static String getLanguage(Context context) {
+    private static String getLanguage(Context context) {
         PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString("pref_key_language", Locale.getDefault().getLanguage());
@@ -101,7 +101,6 @@ public class LocaleChanger {
      * @param language The language to apply
      * @return A new context with the updated language
      */
-    @SuppressWarnings("deprecation")
     private static Context updateResourcesLegacy(Context context, String language) {
         Locale locale;
 

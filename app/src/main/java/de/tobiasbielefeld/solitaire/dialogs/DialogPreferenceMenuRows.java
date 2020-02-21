@@ -34,7 +34,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class DialogPreferenceMenuRows extends CustomDialogPreference {
 
-    Spinner spinnerPortrait, spinnerLandscape;
+    private Spinner spinnerPortrait, spinnerLandscape;
 
     public DialogPreferenceMenuRows(Context context, AttributeSet attrs) {
         super(context, attrs);

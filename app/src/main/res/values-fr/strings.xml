@@ -54,7 +54,7 @@
     <string name="game_longest_run">"Plus longue série :"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Félicitation!"</string>
+    <string name="dialog_win_title">"Félicitation!"</string>
     <string name="dialog_win_score">"Points: %1$d"</string>
     <string name="dialog_win_bonus">"Prime: %1$d"</string>
     <string name="dialog_win_total">"Total: %1$d"</string>
@@ -501,8 +501,8 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
     <string name="settings_use_true_randomisation_text">"La randomisation par défaut permet d'éviter les cartes similaires les unes à côté des autres. Cochez cette case pour permettre une randomisation vraiment uniforme."</string>
     <string name="settings_developer_options">"Options de développement"</string>
     <string name="settings_developer_options_description">"Jouez avec des décors délirants!"</string>
-    <string name="settings_developer_options_move_card_everwhere_title">"Déplacer les cartes partout"</string>
-    <string name="settings_developer_options_move_card_everwhere_text">"Vous pouvez placer des cartes sur n'importe quelle pile"</string>
+    <string name="settings_developer_options_move_card_everywhere_title">"Déplacer les cartes partout"</string>
+    <string name="settings_developer_options_move_card_everywhere_text">"Vous pouvez placer des cartes sur n'importe quelle pile"</string>
     <string name="settings_developer_options_lock_text">"Ces paramètres sont destinés à des fins de test uniquement, l'utilisation peut entraîner un comportement étrange et des plantages!"</string>
     <string name="settings_developer_options_play_every_card_title">"Jouez chaque carte"</string>
     <string name="settings_developer_options_play_every_card_text">"Vous pouvez jouer chaque carte révélée"</string>
@@ -518,9 +518,9 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
     <string name="settings_portrait">"Portrait"</string>
     <string name="settings_landscape">"Paysage"</string>
     <string name="settings_landscape_upside_down">"Paysage renversé"</string>
-    <string name="settings_spider_difficultiy_1">"1 (Facile)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (Moyen)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (Difficile)"</string>
+    <string name="settings_spider_difficulty_1">"1 (Facile)"</string>
+    <string name="settings_spider_difficulty_2">"2 (Moyen)"</string>
+    <string name="settings_spider_difficulty_3">"4 (Difficile)"</string>
     <string name="settings_draw_1">"Donner 1 carte"</string>
     <string name="settings_draw_3">"Donner 3 cartes"</string>
     <string name="settings_pyramid_difficulty_1">"Facile : La partie est gagnée quand le plateau est vide"</string>
@@ -572,8 +572,8 @@ Sur le tableau, seules les cartes du dessus peuvent être déplacées, et unique
     <string name="statistics_button_deleted_all_entries">"Tout a été supprimé"</string>
     <string name="statistics_time_of_day">"Heure"</string>
     <string name="statistics_date">"Date"</string>
-    <string name="settings_diable_undo_costs">"Désactiver la pénalité de score en Annuler"</string>
-    <string name="settings_diable_hint_costs">"Désactiver la pénalité de score d'indice"</string>
+    <string name="settings_disable_undo_costs">"Désactiver la pénalité de score en Annuler"</string>
+    <string name="settings_disable_hint_costs">"Désactiver la pénalité de score d'indice"</string>
     <string name="statistics_high_scores">"Meilleurs scores"</string>
     <string name="statistics_recent_scores">"Score récent"</string>
     <string name="statistics_total_time">"Temps joué"</string>
@@ -681,7 +681,7 @@ Voulez-vous supprimer les paramètres individuels pour tous les jeux de la liste
     <string name="settings_reset_to_defaults">"Réinitialisation des valeurs par défaut"</string>
     <string name="settings_text_color">"Couleur du texte et de la pile"</string>
     <string name="settings_language_chinese_simplified">"Chinois (simplifié)"</string>
-    <string name="settings_ensure_movability_cancle_search">"Annuler et commencer immédiatement"</string>
+    <string name="settings_ensure_movability_cancel_search">"Annuler et commencer immédiatement"</string>
     <string name="settings_language_portuguese">"Portugais"</string>
     <string name="settings_restart_game">"Démarrer une nouvelle parte de %1$s pour appliquer les modifications"</string>
 </resources>

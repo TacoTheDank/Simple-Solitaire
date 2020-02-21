@@ -34,8 +34,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class DialogPreferenceGameLayoutMargins extends CustomDialogPreference {
 
-    RadioButton[] portrait = new RadioButton[4];
-    RadioButton[] landscape = new RadioButton[4];
+    private RadioButton[] portrait = new RadioButton[4];
+    private RadioButton[] landscape = new RadioButton[4];
 
 
     public DialogPreferenceGameLayoutMargins(Context context, AttributeSet attrs) {

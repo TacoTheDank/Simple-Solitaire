@@ -11,4 +11,5 @@
         android:layout_width="@dimen/preference_widget_height"
         android:layout_height="@dimen/preference_widget_height"
         android:adjustViewBounds="true" />
+
 </LinearLayout>

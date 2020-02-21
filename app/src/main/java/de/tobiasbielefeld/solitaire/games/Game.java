@@ -61,7 +61,7 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_F
 
 public abstract class Game {
 
-    //stack not visibile on the screen, used to remove cards from a game
+    //stack not visible on the screen, used to remove cards from a game
     public Stack offScreenStack;
 
     public int[] cardDrawablesOrder = new int[]{1, 2, 3, 4};

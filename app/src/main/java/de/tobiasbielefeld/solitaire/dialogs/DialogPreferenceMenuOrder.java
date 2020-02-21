@@ -39,7 +39,6 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class DialogPreferenceMenuOrder extends CustomDialogPreference {
 
-    StableArrayAdapter adapter;
     private ArrayList<String> gameList;
 
     public DialogPreferenceMenuOrder(Context context, AttributeSet attrs) {
@@ -55,7 +54,7 @@ public class DialogPreferenceMenuOrder extends CustomDialogPreference {
 
         gameList.addAll(sortedGameList);
 
-        adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
+        StableArrayAdapter adapter = new StableArrayAdapter(getContext(), R.layout.text_view, gameList);
         DynamicListView listView = view.findViewById(R.id.listview);
 
         listView.setList(gameList);

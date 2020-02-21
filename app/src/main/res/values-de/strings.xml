@@ -54,7 +54,7 @@
     <string name="game_longest_run">"Längste Kartenfolge:"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Glückwunsch!"</string>
+    <string name="dialog_win_title">"Glückwunsch!"</string>
     <string name="dialog_win_score">"Score: %1$d"</string>
     <string name="dialog_win_bonus">"Bonus: %1$d"</string>
     <string name="dialog_win_total">"Gesamt: %1$d"</string>
@@ -495,8 +495,8 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
     <string name="settings_use_true_randomisation_text">"Die Standard Randomisierung vermeidet ähnliche Karten übereinander. Setze das Häkchen, um eine uniforme Randomisierung zu nutzen."</string>
     <string name="settings_developer_options">"Entwickler Optionen"</string>
     <string name="settings_developer_options_description">"Spiele mit verrückten Einstellungen herum!"</string>
-    <string name="settings_developer_options_move_card_everwhere_title">"Bewege Karten überall hin"</string>
-    <string name="settings_developer_options_move_card_everwhere_text">"Man kann Karten auf jeden Stapel platzieren"</string>
+    <string name="settings_developer_options_move_card_everywhere_title">"Bewege Karten überall hin"</string>
+    <string name="settings_developer_options_move_card_everywhere_text">"Man kann Karten auf jeden Stapel platzieren"</string>
     <string name="settings_developer_options_lock_text">"Diese Einstellungen sind nur für Testzwecke gedacht, die Verwendung kann zu merkwürdigem Verhalten und Abstürzen führen!"</string>
     <string name="settings_developer_options_play_every_card_title">"Spiele jede Karte"</string>
     <string name="settings_developer_options_play_every_card_text">"Man kann jede aufgedeckte Karte spielen"</string>
@@ -512,9 +512,9 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
     <string name="settings_portrait">"Hochformat"</string>
     <string name="settings_landscape">"Querformat"</string>
     <string name="settings_landscape_upside_down">"Querformat umgedreht"</string>
-    <string name="settings_spider_difficultiy_1">"1 (Einfach)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (Mittel)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (Schwer)"</string>
+    <string name="settings_spider_difficulty_1">"1 (Einfach)"</string>
+    <string name="settings_spider_difficulty_2">"2 (Mittel)"</string>
+    <string name="settings_spider_difficulty_3">"4 (Schwer)"</string>
     <string name="settings_draw_1">"Draw 1"</string>
     <string name="settings_draw_3">"Draw 3"</string>
     <string name="settings_pyramid_difficulty_1">"Leicht: Spiel ist gewonnen, falls das Tableau leer ist"</string>
@@ -565,8 +565,8 @@ Auf dem Tableau können nur die obersten Karten bewegt werden und zudem nur zur 
     <string name="statistics_button_deleted_all_entries">"Alle Einträge gelöscht"</string>
     <string name="statistics_time_of_day">"Uhrzeit"</string>
     <string name="statistics_date">"Datum"</string>
-    <string name="settings_diable_undo_costs">"Keine Strafpunkte für Zurücknehmen"</string>
-    <string name="settings_diable_hint_costs">"Keine Strafpunkte für Hinweise"</string>
+    <string name="settings_disable_undo_costs">"Keine Strafpunkte für Zurücknehmen"</string>
+    <string name="settings_disable_hint_costs">"Keine Strafpunkte für Hinweise"</string>
     <string name="statistics_high_scores">"High Scores"</string>
     <string name="statistics_recent_scores">"letzte Scores"</string>
     <string name="statistics_total_time">"Gespielte Zeit"</string>
@@ -678,7 +678,7 @@ Möchten Sie die individuellen Einstellungen für alle aufgeführten Spiele entf
     <string name="settings_reset_to_defaults">"Auf Standardwerte zurücksetzen"</string>
     <string name="settings_text_color">"Text- und Stapelfarbe"</string>
     <string name="settings_language_chinese_simplified">"Chinesisch (Vereinfacht)"</string>
-    <string name="settings_ensure_movability_cancle_search">"Abbrechen und sofort starten"</string>
+    <string name="settings_ensure_movability_cancel_search">"Abbrechen und sofort starten"</string>
     <string name="games_Maze">"Maze"</string>
     <string name="games_Spiderette">"Spiderette"</string>
     <string name="manual_Spiderette_scoring">"Eine Karte zur Foundation bewegen: +200

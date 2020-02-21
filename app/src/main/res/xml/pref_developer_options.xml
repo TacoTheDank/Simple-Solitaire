@@ -16,8 +16,8 @@
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_developer_option_move_cards_everywhere"
         android:key="@string/pref_key_developer_option_move_cards_everywhere"
-        android:summary="@string/settings_developer_options_move_card_everwhere_text"
-        android:title="@string/settings_developer_options_move_card_everwhere_title" />
+        android:summary="@string/settings_developer_options_move_card_everywhere_text"
+        android:title="@string/settings_developer_options_move_card_everywhere_title" />
 
     <de.tobiasbielefeld.solitaire.classes.CustomCheckBoxPreference
         android:defaultValue="@bool/default_developer_option_play_every_card"

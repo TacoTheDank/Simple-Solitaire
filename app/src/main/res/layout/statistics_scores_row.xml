@@ -43,4 +43,5 @@
         android:paddingLeft="@dimen/statistics_table_padding"
         android:paddingRight="@dimen/statistics_table_padding"
         android:textSize="@dimen/statistics_text_size" />
+
 </TableRow>

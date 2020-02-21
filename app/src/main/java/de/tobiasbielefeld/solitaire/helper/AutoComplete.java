@@ -82,11 +82,11 @@ public class AutoComplete extends HelperCardMovement {
         hideButton();
     }
 
-    public boolean buttonIsShown() {
+    boolean buttonIsShown() {
         return buttonShown;
     }
 
-    public void showButton(boolean withoutMovement) {
+    void showButton(boolean withoutMovement) {
         buttonShown = true;
 
         if (!withoutMovement) {
@@ -97,7 +97,7 @@ public class AutoComplete extends HelperCardMovement {
         }
     }
 
-    public void hideButton() {
+    void hideButton() {
         buttonShown = false;
 
         if (gm.buttonAutoComplete.getVisibility() == View.VISIBLE) {
@@ -121,7 +121,7 @@ public class AutoComplete extends HelperCardMovement {
         }
     }
 
-    public void phase1() {
+    private void phase1() {
         CardAndStack cardAndStack = currentGame.autoCompletePhaseOne();
 
         if (cardAndStack == null) {
@@ -145,7 +145,7 @@ public class AutoComplete extends HelperCardMovement {
         }
     }
 
-    public void phase2() {
+    private void phase2() {
         CardAndStack cardAndStack = currentGame.autoCompletePhaseTwo();
 
         if (cardAndStack == null) {
@@ -168,7 +168,7 @@ public class AutoComplete extends HelperCardMovement {
         }
     }
 
-    public void phase3() {
+    private void phase3() {
         stop();
         gameLogic.testIfWon();
     }

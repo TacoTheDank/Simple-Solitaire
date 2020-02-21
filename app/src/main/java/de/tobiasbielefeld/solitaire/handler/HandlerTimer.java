@@ -61,7 +61,7 @@ public class HandlerTimer extends Handler {
                 return;
             }
 
-            Long time = timer.getCurrentTime();
+            long time = timer.getCurrentTime();
 
             gm.mainTextViewTime.setText(String.format(Locale.getDefault(),
                     "%s: %02d:%02d:%02d", gm.getString(R.string.game_time),

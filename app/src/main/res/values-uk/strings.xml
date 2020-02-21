@@ -41,7 +41,7 @@
     <string name="purple">"Пурупровий"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Вітаємо!"</string>
+    <string name="dialog_win_title">"Вітаємо!"</string>
     <string name="dialog_win_score">"Бали: %1$d"</string>
     <string name="dialog_win_bonus">"Бонуси: %1$d"</string>
     <string name="dialog_win_total">"Загалом: %1$d"</string>
@@ -117,9 +117,9 @@
     <string name="settings_hide_score">"Приховати бали"</string>
     <string name="settings_portrait">"Портретний"</string>
     <string name="settings_landscape">"Ландшафтний"</string>
-    <string name="settings_spider_difficultiy_1">"1 (Простий)"</string>
-    <string name="settings_spider_difficultiy_2">"2 (Середня)"</string>
-    <string name="settings_spider_difficultiy_3">"4 (Висока)"</string>
+    <string name="settings_spider_difficulty_1">"1 (Простий)"</string>
+    <string name="settings_spider_difficulty_2">"2 (Середня)"</string>
+    <string name="settings_spider_difficulty_3">"4 (Висока)"</string>
     <string name="settings_language_default">"Типова мова"</string>
     <string name="settings_movement_speed_1">"Дуже повільно"</string>
     <string name="settings_movement_speed_2">"Повільно"</string>

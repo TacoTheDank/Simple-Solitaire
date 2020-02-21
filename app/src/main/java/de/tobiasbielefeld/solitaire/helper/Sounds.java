@@ -88,7 +88,7 @@ public class Sounds {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    protected void createNewSoundPool() {
+    private void createNewSoundPool() {
         AudioAttributes attributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_GAME)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -98,8 +98,7 @@ public class Sounds {
                 .build();
     }
 
-    @SuppressWarnings("deprecation")
-    protected void createOldSoundPool() {
+    private void createOldSoundPool() {
         sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
     }
 

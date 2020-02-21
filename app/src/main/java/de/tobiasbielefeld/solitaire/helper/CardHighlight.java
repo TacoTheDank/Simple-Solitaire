@@ -34,7 +34,7 @@ import static android.view.View.GONE;
 
 public class CardHighlight {
 
-    int padding, width, height;
+    private int padding, width, height;
     private boolean moveStarted;
 
     /**

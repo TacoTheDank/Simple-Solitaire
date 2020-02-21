@@ -52,7 +52,7 @@ import static de.tobiasbielefeld.solitaire.helper.Preferences.PREF_KEY_KLONDIKE_
 
 public class Klondike extends Game {
 
-    protected int whichGame;
+    int whichGame;
 
     public Klondike() {
         setNumberOfDecks(1);

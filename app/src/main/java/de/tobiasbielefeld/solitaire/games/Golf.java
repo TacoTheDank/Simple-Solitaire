@@ -46,10 +46,10 @@ import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 
 public class Golf extends Game {
 
-    static int MAX_SAVED_RUN_RECORDS;
+    private static int MAX_SAVED_RUN_RECORDS;
 
-    int runCounter = 0; //to count how many cards are moved in one "run"
-    ArrayList<Integer> savedRunRecords = new ArrayList<>(); //need to save the scores of recorded movements, because the class RecordList can't do that
+    private int runCounter = 0; //to count how many cards are moved in one "run"
+    private ArrayList<Integer> savedRunRecords = new ArrayList<>(); //need to save the scores of recorded movements, because the class RecordList can't do that
 
     public Golf() {
         setNumberOfDecks(1);

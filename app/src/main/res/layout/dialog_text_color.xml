@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/black" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -52,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/white" />
+
         </LinearLayout>
 
     </TableRow>

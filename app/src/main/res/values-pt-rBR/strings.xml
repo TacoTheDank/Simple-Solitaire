@@ -54,7 +54,7 @@
     <string name="game_longest_run">"Seqüência longa"</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"Parabéns!"</string>
+    <string name="dialog_win_title">"Parabéns!"</string>
     <string name="dialog_win_score">"Pontos: %1$d"</string>
     <string name="dialog_win_bonus">"Bonus: %1$d"</string>
     <string name="dialog_win_total">"Total: %1$d"</string>
@@ -141,9 +141,9 @@ Não é possível mover cartas da pilha de descarte para a pilha principal (exce
     <string name="settings_expert_settings">"Configurações avançadas"</string>
     <string name="settings_portrait">"Retrato"</string>
     <string name="settings_landscape">"Paisagem"</string>
-    <string name="settings_spider_difficultiy_1">"1(Fácil)"</string>
-    <string name="settings_spider_difficultiy_2">"2(Médio)"</string>
-    <string name="settings_spider_difficultiy_3">"4(Difícil)"</string>
+    <string name="settings_spider_difficulty_1">"1(Fácil)"</string>
+    <string name="settings_spider_difficulty_2">"2(Médio)"</string>
+    <string name="settings_spider_difficulty_3">"4(Difícil)"</string>
     <string name="settings_language_default">"Língua padrão"</string>
     <string name="settings_language_english">"Inglês"</string>
     <string name="settings_language_esperanto">"Esperando"</string>
@@ -179,8 +179,8 @@ Não é possível mover cartas da pilha de descarte para a pilha principal (exce
     <string name="statistics_button_deleted_all_entries">"Apague todos os registros"</string>
     <string name="statistics_time_of_day">"Horário"</string>
     <string name="statistics_date">"Data"</string>
-    <string name="settings_diable_undo_costs">"Desativar penalidade por voltar jogada"</string>
-    <string name="settings_diable_hint_costs">"Desativar a penalidade por sugestões"</string>
+    <string name="settings_disable_undo_costs">"Desativar penalidade por voltar jogada"</string>
+    <string name="settings_disable_hint_costs">"Desativar a penalidade por sugestões"</string>
     <string name="statistics_high_scores">"Melhores resultados"</string>
     <string name="statistics_recent_scores">"Resultados recentes"</string>
     <string name="statistics_total_time">"Total de tempo jogado"</string>

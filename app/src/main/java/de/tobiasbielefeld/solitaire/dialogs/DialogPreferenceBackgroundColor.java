@@ -48,9 +48,9 @@ import static de.tobiasbielefeld.solitaire.SharedData.prefs;
 
 public class DialogPreferenceBackgroundColor extends CustomDialogPreference implements View.OnClickListener {
 
-    int backgroundType;
-    int backgroundValue;
-    int savedCustomColor;
+    private int backgroundType;
+    private int backgroundValue;
+    private int savedCustomColor;
     private ArrayList<LinearLayout> linearLayouts;
     private Context context;
     private ImageView image;

@@ -54,7 +54,7 @@
     <string name="game_longest_run">"最长序列："</string>
 
     <!-- dialog won -->
-    <string name="dialog_win_titel">"祝贺！"</string>
+    <string name="dialog_win_title">"祝贺！"</string>
     <string name="dialog_win_score">"分数：%1$d"</string>
     <string name="dialog_win_bonus">"奖金：%1$d"</string>
     <string name="dialog_win_total">"总计：%1$d"</string>
@@ -200,7 +200,7 @@
     <string name="settings_use_true_randomisation_text">"默认重置方案阻止了相同卡牌出现在相邻位置。选择这个可以启用真正的随机方式"</string>
     <string name="settings_developer_options">"开发者选项"</string>
     <string name="settings_developer_options_description">"使用疯狂的设置进行游戏"</string>
-    <string name="settings_developer_options_move_card_everwhere_title">"任意移动卡牌"</string>
+    <string name="settings_developer_options_move_card_everywhere_title">"任意移动卡牌"</string>
     <string name="settings_developer_options_play_every_card_title">"打出任何卡牌"</string>
     <string name="settings_developer_options_instant_win_title">"强制胜利"</string>
     <string name="settings_developer_options_instant_win_text">"在移动卡牌后就获得胜利"</string>
@@ -212,9 +212,9 @@
     <string name="settings_follow_system_settings">"跟随系统设置"</string>
     <string name="settings_portrait">"竖屏"</string>
     <string name="settings_landscape">"横屏"</string>
-    <string name="settings_spider_difficultiy_1">"1 （简单）"</string>
-    <string name="settings_spider_difficultiy_2">"2 （中等）"</string>
-    <string name="settings_spider_difficultiy_3">"4 （难）"</string>
+    <string name="settings_spider_difficulty_1">"1 （简单）"</string>
+    <string name="settings_spider_difficulty_2">"2 （中等）"</string>
+    <string name="settings_spider_difficulty_3">"4 （难）"</string>
     <string name="settings_draw_1">"Draw 1"</string>
     <string name="settings_draw_3">"Draw 3"</string>
     <string name="settings_language_default">"默认语言"</string>
@@ -258,7 +258,7 @@
     <string name="statistics_button_deleted_all_entries">"已删除全部记录"</string>
     <string name="statistics_time_of_day">"日间"</string>
     <string name="statistics_date">"日期"</string>
-    <string name="settings_diable_undo_costs">"绘制 3"</string>
+    <string name="settings_disable_undo_costs">"绘制 3"</string>
     <string name="statistics_high_scores">"高分"</string>
     <string name="statistics_recent_scores">"最近成绩"</string>
     <string name="statistics_total_time">"总游玩时间"</string>
@@ -316,7 +316,7 @@
     <string name="white">"白"</string>
     <string name="settings_reset_to_defaults">"恢复默认值"</string>
     <string name="settings_language_chinese_simplified">"中文（简体）"</string>
-    <string name="settings_ensure_movability_cancle_search">"取消并立即开始"</string>
+    <string name="settings_ensure_movability_cancel_search">"取消并立即开始"</string>
     <string name="settings_language_portuguese">"葡萄牙语"</string>
     <string name="settings_restart_game">"开启一场新的%1$s游戏以应用更改"</string>
 </resources>

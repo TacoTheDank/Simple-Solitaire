@@ -42,13 +42,13 @@
                         android:text="@string/app_name"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold" />
+
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:background="@android:color/darker_gray" />
-
 
                 <TableLayout
                     android:layout_width="wrap_content"
@@ -73,6 +73,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/about_developer_name" />
+
                     </TableRow>
 
                     <TableRow
@@ -93,6 +94,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="" />
+
                     </TableRow>
 
                     <TableRow
@@ -113,6 +115,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="" />
+
                     </TableRow>
 
                     <TableRow
@@ -133,6 +136,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/about_app_github_link" />
+
                     </TableRow>
 
                     <TableRow
@@ -153,11 +157,13 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/about_app_license_link" />
+
                     </TableRow>
 
                 </TableLayout>
 
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -173,22 +179,18 @@
                 android:orientation="vertical"
                 android:padding="6dp">
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:text="@string/about_translations"
-
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />
-
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:background="@android:color/darker_gray" />
-
 
                 <TableLayout
                     android:id="@+id/about_table_translators"
@@ -215,6 +217,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/contributors_japanese" />
+
                     </TableRow>
 
                     <TableRow
@@ -235,6 +238,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/contributors_esperanto" />
+
                     </TableRow>
 
                     <TableRow
@@ -255,6 +259,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/contributors_polish" />
+
                     </TableRow>
 
                     <TableRow
@@ -296,6 +301,7 @@
                             android:layout_weight="1"
                             android:padding="7dp"
                             android:text="@string/contributors_finnish" />
+
                     </TableRow>
 
                     <TableRow
@@ -551,12 +557,10 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />
 
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:background="@android:color/darker_gray" />
-
 
                 <TableLayout
                     android:id="@+id/about_table_further_contributors"
@@ -680,6 +684,5 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
 
 </ScrollView>

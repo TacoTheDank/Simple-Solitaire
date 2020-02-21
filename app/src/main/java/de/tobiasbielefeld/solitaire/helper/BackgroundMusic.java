@@ -69,7 +69,7 @@ public class BackgroundMusic extends AsyncTask<Context, Void, Void> {
         return null;
     }
 
-    public void changeVolume() {
+    private void changeVolume() {
         if (player != null) {
             int currentVolume = prefs.getSavedBackgroundVolume();
             float log1 = currentVolume == 100 ? 0 : (float) (Math.log(100 - currentVolume) / Math.log(100));
