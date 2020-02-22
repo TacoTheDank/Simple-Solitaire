@@ -23,11 +23,13 @@ android {
         }
         debug {
             zipAlignEnabled true
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-DEBUG"
         }
     }
 
     lintOptions {
-        disable 'MissingTranslation'
+        disable 'MissingTranslation', 'GoogleAppIndexingWarning'
         abortOnError false
     }
 
